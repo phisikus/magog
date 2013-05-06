@@ -8,8 +8,8 @@ return array
 		'connection' => array(
 			'hostname'   => 'localhost',
 			'database'   => 'magog',
-			'username'   => 'magog',
-			'password'   => 'magog',
+			'username'   => 'root',
+			'password'   => '8268944',
 			'persistent' => FALSE,
 		),
 		'table_prefix' => '',
