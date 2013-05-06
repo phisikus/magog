@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11deb1
+-- version 3.4.11.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 25, 2012 at 01:07 PM
--- Server version: 5.5.24
--- PHP Version: 5.4.4-2
+-- Czas wygenerowania: 06 Maj 2013, 19:48
+-- Wersja serwera: 5.5.30
+-- Wersja PHP: 5.4.4-14
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `baza`
+-- Baza danych: `magog`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
+-- Struktura tabeli dla tabeli `comments`
 --
 
 CREATE TABLE IF NOT EXISTS `comments` (
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `comments`
+-- Zrzut danych tabeli `comments`
 --
 
 INSERT INTO `comments` (`id`, `author_id`, `author_username`, `parent_page`, `parent_comment`, `content`, `date`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `comments` (`id`, `author_id`, `author_username`, `parent_page`, `pa
 -- --------------------------------------------------------
 
 --
--- Table structure for table `config`
+-- Struktura tabeli dla tabeli `config`
 --
 
 CREATE TABLE IF NOT EXISTS `config` (
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `config` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `config`
+-- Zrzut danych tabeli `config`
 --
 
 INSERT INTO `config` (`id`, `website`, `module`, `property`, `value`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `config` (`id`, `website`, `module`, `property`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu`
+-- Struktura tabeli dla tabeli `menu`
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
--- Dumping data for table `menu`
+-- Zrzut danych tabeli `menu`
 --
 
 INSERT INTO `menu` (`id`, `text`, `parent_id`, `link`, `enabled`, `visible`) VALUES
@@ -99,7 +99,7 @@ INSERT INTO `menu` (`id`, `text`, `parent_id`, `link`, `enabled`, `visible`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages`
+-- Struktura tabeli dla tabeli `pages`
 --
 
 CREATE TABLE IF NOT EXISTS `pages` (
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `pages`
+-- Zrzut danych tabeli `pages`
 --
 
 INSERT INTO `pages` (`id`, `title`, `short_title`, `content`, `author_id`, `date`, `mod_date`, `public`, `comments`, `news`, `categories`, `lang`) VALUES
@@ -130,7 +130,7 @@ INSERT INTO `pages` (`id`, `title`, `short_title`, `content`, `author_id`, `date
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Struktura tabeli dla tabeli `roles`
 --
 
 CREATE TABLE IF NOT EXISTS `roles` (
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `roles`
+-- Zrzut danych tabeli `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `description`) VALUES
@@ -155,7 +155,7 @@ INSERT INTO `roles` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles_users`
+-- Struktura tabeli dla tabeli `roles_users`
 --
 
 CREATE TABLE IF NOT EXISTS `roles_users` (
@@ -166,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `roles_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `roles_users`
+-- Zrzut danych tabeli `roles_users`
 --
 
 INSERT INTO `roles_users` (`user_id`, `role_id`) VALUES
@@ -181,7 +181,7 @@ INSERT INTO `roles_users` (`user_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktura tabeli dla tabeli `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -202,7 +202,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `users`
+-- Zrzut danych tabeli `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `logins`, `last_login`, `full_name`, `external_id`, `signature`, `avatar`, `lang`) VALUES
@@ -212,7 +212,7 @@ INSERT INTO `users` (`id`, `email`, `username`, `password`, `logins`, `last_logi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_tokens`
+-- Struktura tabeli dla tabeli `user_tokens`
 --
 
 CREATE TABLE IF NOT EXISTS `user_tokens` (
@@ -228,30 +228,30 @@ CREATE TABLE IF NOT EXISTS `user_tokens` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Constraints for dumped tables
+-- Ograniczenia dla zrzutów tabel
 --
 
 --
--- Constraints for table `comments`
+-- Ograniczenia dla tabeli `comments`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_pages1` FOREIGN KEY (`parent_page`) REFERENCES `pages` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `menu`
+-- Ograniczenia dla tabeli `menu`
 --
 ALTER TABLE `menu`
   ADD CONSTRAINT `menu_submenus` FOREIGN KEY (`parent_id`) REFERENCES `menu` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `roles_users`
+-- Ograniczenia dla tabeli `roles_users`
 --
 ALTER TABLE `roles_users`
   ADD CONSTRAINT `roles_users_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `roles_users_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `user_tokens`
+-- Ograniczenia dla tabeli `user_tokens`
 --
 ALTER TABLE `user_tokens`
   ADD CONSTRAINT `user_tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
