@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.1.9
 -- Dumped by pg_dump version 9.1.9
--- Started on 2013-05-24 01:40:28 CEST
+-- Started on 2013-05-24 12:44:24 CEST
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -13,7 +13,7 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
--- TOC entry 176 (class 3079 OID 11645)
+-- TOC entry 176 (class 3079 OID 11652)
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
 
@@ -21,7 +21,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 1966 (class 0 OID 0)
+-- TOC entry 1975 (class 0 OID 0)
 -- Dependencies: 176
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
@@ -32,7 +32,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 177 (class 1255 OID 17337)
+-- TOC entry 188 (class 1255 OID 17563)
 -- Dependencies: 6
 -- Name: from_unixtime(integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
@@ -46,7 +46,7 @@ CREATE FUNCTION from_unixtime(integer) RETURNS timestamp with time zone
 ALTER FUNCTION public.from_unixtime(integer) OWNER TO postgres;
 
 --
--- TOC entry 181 (class 1255 OID 17338)
+-- TOC entry 189 (class 1255 OID 17564)
 -- Dependencies: 6
 -- Name: month(timestamp without time zone); Type: FUNCTION; Schema: public; Owner: postgres
 --
@@ -61,7 +61,7 @@ $_$;
 ALTER FUNCTION public.month(timestamp without time zone) OWNER TO postgres;
 
 --
--- TOC entry 190 (class 1255 OID 17339)
+-- TOC entry 190 (class 1255 OID 17565)
 -- Dependencies: 6
 -- Name: month(timestamp with time zone); Type: FUNCTION; Schema: public; Owner: postgres
 --
@@ -76,7 +76,7 @@ $_$;
 ALTER FUNCTION public.month(timestamp with time zone) OWNER TO postgres;
 
 --
--- TOC entry 191 (class 1255 OID 17340)
+-- TOC entry 191 (class 1255 OID 17566)
 -- Dependencies: 6
 -- Name: month(date); Type: FUNCTION; Schema: public; Owner: postgres
 --
@@ -91,7 +91,7 @@ $_$;
 ALTER FUNCTION public.month(date) OWNER TO postgres;
 
 --
--- TOC entry 192 (class 1255 OID 17341)
+-- TOC entry 192 (class 1255 OID 17567)
 -- Dependencies: 6
 -- Name: year(timestamp without time zone); Type: FUNCTION; Schema: public; Owner: postgres
 --
@@ -106,7 +106,7 @@ $_$;
 ALTER FUNCTION public.year(timestamp without time zone) OWNER TO postgres;
 
 --
--- TOC entry 193 (class 1255 OID 17342)
+-- TOC entry 193 (class 1255 OID 17568)
 -- Dependencies: 6
 -- Name: year(timestamp with time zone); Type: FUNCTION; Schema: public; Owner: postgres
 --
@@ -121,7 +121,7 @@ $_$;
 ALTER FUNCTION public.year(timestamp with time zone) OWNER TO postgres;
 
 --
--- TOC entry 194 (class 1255 OID 17343)
+-- TOC entry 194 (class 1255 OID 17569)
 -- Dependencies: 6
 -- Name: year(date); Type: FUNCTION; Schema: public; Owner: postgres
 --
@@ -136,7 +136,7 @@ $_$;
 ALTER FUNCTION public.year(date) OWNER TO postgres;
 
 --
--- TOC entry 161 (class 1259 OID 17036)
+-- TOC entry 161 (class 1259 OID 17570)
 -- Dependencies: 6
 -- Name: comments_pk_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -156,8 +156,8 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 162 (class 1259 OID 17038)
--- Dependencies: 1904 1905 6
+-- TOC entry 162 (class 1259 OID 17572)
+-- Dependencies: 1911 1912 6
 -- Name: comments; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -175,7 +175,7 @@ CREATE TABLE comments (
 ALTER TABLE public.comments OWNER TO postgres;
 
 --
--- TOC entry 163 (class 1259 OID 17046)
+-- TOC entry 163 (class 1259 OID 17580)
 -- Dependencies: 6
 -- Name: config_pk_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -191,8 +191,8 @@ CREATE SEQUENCE config_pk_seq
 ALTER TABLE public.config_pk_seq OWNER TO postgres;
 
 --
--- TOC entry 164 (class 1259 OID 17048)
--- Dependencies: 1906 6
+-- TOC entry 164 (class 1259 OID 17582)
+-- Dependencies: 1913 6
 -- Name: config; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -208,7 +208,7 @@ CREATE TABLE config (
 ALTER TABLE public.config OWNER TO postgres;
 
 --
--- TOC entry 165 (class 1259 OID 17055)
+-- TOC entry 165 (class 1259 OID 17589)
 -- Dependencies: 6
 -- Name: menu_pk_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -224,8 +224,8 @@ CREATE SEQUENCE menu_pk_seq
 ALTER TABLE public.menu_pk_seq OWNER TO postgres;
 
 --
--- TOC entry 166 (class 1259 OID 17057)
--- Dependencies: 1907 6
+-- TOC entry 166 (class 1259 OID 17591)
+-- Dependencies: 1914 6
 -- Name: menu; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -242,7 +242,7 @@ CREATE TABLE menu (
 ALTER TABLE public.menu OWNER TO postgres;
 
 --
--- TOC entry 167 (class 1259 OID 17064)
+-- TOC entry 167 (class 1259 OID 17598)
 -- Dependencies: 6
 -- Name: pages_pk_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -258,8 +258,8 @@ CREATE SEQUENCE pages_pk_seq
 ALTER TABLE public.pages_pk_seq OWNER TO postgres;
 
 --
--- TOC entry 168 (class 1259 OID 17066)
--- Dependencies: 1908 6
+-- TOC entry 168 (class 1259 OID 17600)
+-- Dependencies: 1915 6
 -- Name: pages; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -275,14 +275,15 @@ CREATE TABLE pages (
     comments integer,
     news integer,
     categories character varying(700),
-    lang character varying(10)
+    lang character varying(10),
+    parent_page integer
 );
 
 
 ALTER TABLE public.pages OWNER TO postgres;
 
 --
--- TOC entry 169 (class 1259 OID 17073)
+-- TOC entry 169 (class 1259 OID 17607)
 -- Dependencies: 6
 -- Name: roles_pk_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -298,8 +299,8 @@ CREATE SEQUENCE roles_pk_seq
 ALTER TABLE public.roles_pk_seq OWNER TO postgres;
 
 --
--- TOC entry 170 (class 1259 OID 17075)
--- Dependencies: 1909 6
+-- TOC entry 170 (class 1259 OID 17609)
+-- Dependencies: 1916 6
 -- Name: roles; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -313,7 +314,7 @@ CREATE TABLE roles (
 ALTER TABLE public.roles OWNER TO postgres;
 
 --
--- TOC entry 171 (class 1259 OID 17079)
+-- TOC entry 171 (class 1259 OID 17613)
 -- Dependencies: 6
 -- Name: roles_users; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
@@ -327,7 +328,7 @@ CREATE TABLE roles_users (
 ALTER TABLE public.roles_users OWNER TO postgres;
 
 --
--- TOC entry 172 (class 1259 OID 17082)
+-- TOC entry 172 (class 1259 OID 17616)
 -- Dependencies: 6
 -- Name: user_tokens; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
@@ -345,7 +346,7 @@ CREATE TABLE user_tokens (
 ALTER TABLE public.user_tokens OWNER TO postgres;
 
 --
--- TOC entry 173 (class 1259 OID 17085)
+-- TOC entry 173 (class 1259 OID 17619)
 -- Dependencies: 6
 -- Name: user_tokens_pk_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -361,7 +362,7 @@ CREATE SEQUENCE user_tokens_pk_seq
 ALTER TABLE public.user_tokens_pk_seq OWNER TO postgres;
 
 --
--- TOC entry 174 (class 1259 OID 17087)
+-- TOC entry 174 (class 1259 OID 17621)
 -- Dependencies: 6
 -- Name: users_pk_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -377,8 +378,8 @@ CREATE SEQUENCE users_pk_seq
 ALTER TABLE public.users_pk_seq OWNER TO postgres;
 
 --
--- TOC entry 175 (class 1259 OID 17089)
--- Dependencies: 1910 6
+-- TOC entry 175 (class 1259 OID 17623)
+-- Dependencies: 1917 6
 -- Name: users; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -400,8 +401,8 @@ CREATE TABLE users (
 ALTER TABLE public.users OWNER TO postgres;
 
 --
--- TOC entry 1945 (class 0 OID 17038)
--- Dependencies: 162 1959
+-- TOC entry 1954 (class 0 OID 17572)
+-- Dependencies: 162 1968
 -- Data for Name: comments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -410,7 +411,7 @@ INSERT INTO comments VALUES (2, 1, 'admin', 1, NULL, 'No seryjnie niesamowite.',
 
 
 --
--- TOC entry 1967 (class 0 OID 0)
+-- TOC entry 1976 (class 0 OID 0)
 -- Dependencies: 161
 -- Name: comments_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -419,8 +420,8 @@ SELECT pg_catalog.setval('comments_pk_seq', 1, false);
 
 
 --
--- TOC entry 1947 (class 0 OID 17048)
--- Dependencies: 164 1959
+-- TOC entry 1956 (class 0 OID 17582)
+-- Dependencies: 164 1968
 -- Data for Name: config; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -431,7 +432,7 @@ INSERT INTO config VALUES (1, NULL, 'language', 'default', 'pl');
 
 
 --
--- TOC entry 1968 (class 0 OID 0)
+-- TOC entry 1977 (class 0 OID 0)
 -- Dependencies: 163
 -- Name: config_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -440,8 +441,8 @@ SELECT pg_catalog.setval('config_pk_seq', 1, true);
 
 
 --
--- TOC entry 1949 (class 0 OID 17057)
--- Dependencies: 166 1959
+-- TOC entry 1958 (class 0 OID 17591)
+-- Dependencies: 166 1968
 -- Data for Name: menu; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -451,7 +452,7 @@ INSERT INTO menu VALUES (16, 'Strona główna', 14, '/~phisikus/magog/index.php/
 
 
 --
--- TOC entry 1969 (class 0 OID 0)
+-- TOC entry 1978 (class 0 OID 0)
 -- Dependencies: 165
 -- Name: menu_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -460,13 +461,13 @@ SELECT pg_catalog.setval('menu_pk_seq', 1, false);
 
 
 --
--- TOC entry 1951 (class 0 OID 17066)
--- Dependencies: 168 1959
+-- TOC entry 1960 (class 0 OID 17600)
+-- Dependencies: 168 1968
 -- Data for Name: pages; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO pages VALUES (2, 'Pierwszy News', 'pierwszy-news', '<p>Oto jest pierwsza <span style="color: #888888;">informacja<span style="color: #ff0000;">&nbsp;<span style="font-size: medium;">zapisana jako news</span></span></span></p>', 1, 1348575732, 1348575732, 1, 0, 1, '', 'en');
-INSERT INTO pages VALUES (3, 'Drugi news', 'drugi-news', '<p>Oto jest drugi news na stronie - tym razem komentowalny.</p>', 1, 1348575813, 1369352312, 1, 1, 1, '', 'en');
+INSERT INTO pages VALUES (2, 'Pierwszy News', 'pierwszy-news', '<p>Oto jest pierwsza <span style="color: #888888;">informacja<span style="color: #ff0000;">&nbsp;<span style="font-size: medium;">zapisana jako news</span></span></span></p>', 1, 1348575732, 1348575732, 1, 0, 1, '', 'en', NULL);
+INSERT INTO pages VALUES (3, 'Drugi news', 'drugi-news', '<p>Oto jest drugi news na stronie - tym razem komentowalny.</p>', 1, 1348575813, 1369352312, 1, 1, 1, '', 'en', NULL);
 INSERT INTO pages VALUES (1, 'Witaj!', 'witaj', '<p>Witaj w systemie <strong>MAGOG</strong>! Jest to system zarządzania treścią posiadający następujące funkcje:</p>
 <p><span style="text-decoration: underline;">Zarządzania treścią:</span></p>
 <ul>
@@ -498,21 +499,22 @@ INSERT INTO pages VALUES (1, 'Witaj!', 'witaj', '<p>Witaj w systemie <strong>MAG
 <li>Każda z grup ma nazwę i opis </li>
 </ul>
 </li>
-</ul>', 1, 1342608942, 1369352384, 1, 1, 0, '', 'en');
+</ul>', 1, 1342608942, 1369352384, 1, 1, 0, '', 'en', NULL);
+INSERT INTO pages VALUES (4, 'Trzeci', 'trzeci', 'Elo elo :D', 1, 1348575813, 1369352312, 1, 1, 1, '', 'en', 1);
 
 
 --
--- TOC entry 1970 (class 0 OID 0)
+-- TOC entry 1979 (class 0 OID 0)
 -- Dependencies: 167
 -- Name: pages_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('pages_pk_seq', 1, false);
+SELECT pg_catalog.setval('pages_pk_seq', 3, true);
 
 
 --
--- TOC entry 1953 (class 0 OID 17075)
--- Dependencies: 170 1959
+-- TOC entry 1962 (class 0 OID 17609)
+-- Dependencies: 170 1968
 -- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -524,7 +526,7 @@ INSERT INTO roles VALUES (5, 'login', 'Uprawnienia do logowania.');
 
 
 --
--- TOC entry 1971 (class 0 OID 0)
+-- TOC entry 1980 (class 0 OID 0)
 -- Dependencies: 169
 -- Name: roles_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -533,8 +535,8 @@ SELECT pg_catalog.setval('roles_pk_seq', 5, true);
 
 
 --
--- TOC entry 1954 (class 0 OID 17079)
--- Dependencies: 171 1959
+-- TOC entry 1963 (class 0 OID 17613)
+-- Dependencies: 171 1968
 -- Data for Name: roles_users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -546,15 +548,15 @@ INSERT INTO roles_users VALUES (1, 5);
 
 
 --
--- TOC entry 1955 (class 0 OID 17082)
--- Dependencies: 172 1959
+-- TOC entry 1964 (class 0 OID 17616)
+-- Dependencies: 172 1968
 -- Data for Name: user_tokens; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 1972 (class 0 OID 0)
+-- TOC entry 1981 (class 0 OID 0)
 -- Dependencies: 173
 -- Name: user_tokens_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -563,8 +565,8 @@ SELECT pg_catalog.setval('user_tokens_pk_seq', 1, false);
 
 
 --
--- TOC entry 1958 (class 0 OID 17089)
--- Dependencies: 175 1959
+-- TOC entry 1967 (class 0 OID 17623)
+-- Dependencies: 175 1968
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -572,7 +574,7 @@ INSERT INTO users VALUES (1, 'admin@admin.eu', 'admin', 'd98860cb08fd1ad0075f55f
 
 
 --
--- TOC entry 1973 (class 0 OID 0)
+-- TOC entry 1982 (class 0 OID 0)
 -- Dependencies: 174
 -- Name: users_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -581,8 +583,8 @@ SELECT pg_catalog.setval('users_pk_seq', 1, true);
 
 
 --
--- TOC entry 1912 (class 2606 OID 17097)
--- Dependencies: 162 162 1960
+-- TOC entry 1919 (class 2606 OID 17631)
+-- Dependencies: 162 162 1969
 -- Name: comments_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -591,8 +593,8 @@ ALTER TABLE ONLY comments
 
 
 --
--- TOC entry 1917 (class 2606 OID 17099)
--- Dependencies: 164 164 1960
+-- TOC entry 1924 (class 2606 OID 17633)
+-- Dependencies: 164 164 1969
 -- Name: config_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -601,8 +603,8 @@ ALTER TABLE ONLY config
 
 
 --
--- TOC entry 1921 (class 2606 OID 17101)
--- Dependencies: 166 166 1960
+-- TOC entry 1928 (class 2606 OID 17635)
+-- Dependencies: 166 166 1969
 -- Name: menu_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -611,8 +613,8 @@ ALTER TABLE ONLY menu
 
 
 --
--- TOC entry 1924 (class 2606 OID 17103)
--- Dependencies: 168 168 1960
+-- TOC entry 1932 (class 2606 OID 17637)
+-- Dependencies: 168 168 1969
 -- Name: pages_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -621,8 +623,8 @@ ALTER TABLE ONLY pages
 
 
 --
--- TOC entry 1926 (class 2606 OID 17105)
--- Dependencies: 170 170 1960
+-- TOC entry 1934 (class 2606 OID 17639)
+-- Dependencies: 170 170 1969
 -- Name: roles_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -631,8 +633,8 @@ ALTER TABLE ONLY roles
 
 
 --
--- TOC entry 1931 (class 2606 OID 17107)
--- Dependencies: 171 171 171 1960
+-- TOC entry 1939 (class 2606 OID 17641)
+-- Dependencies: 171 171 171 1969
 -- Name: roles_users_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -641,8 +643,8 @@ ALTER TABLE ONLY roles_users
 
 
 --
--- TOC entry 1933 (class 2606 OID 17109)
--- Dependencies: 172 172 1960
+-- TOC entry 1941 (class 2606 OID 17643)
+-- Dependencies: 172 172 1969
 -- Name: user_tokens_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -651,8 +653,8 @@ ALTER TABLE ONLY user_tokens
 
 
 --
--- TOC entry 1935 (class 2606 OID 17111)
--- Dependencies: 175 175 1960
+-- TOC entry 1943 (class 2606 OID 17645)
+-- Dependencies: 175 175 1969
 -- Name: users_pl; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -661,8 +663,8 @@ ALTER TABLE ONLY users
 
 
 --
--- TOC entry 1913 (class 1259 OID 17112)
--- Dependencies: 162 1960
+-- TOC entry 1920 (class 1259 OID 17646)
+-- Dependencies: 162 1969
 -- Name: fki_comments_comments_fk; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -670,8 +672,8 @@ CREATE INDEX fki_comments_comments_fk ON comments USING btree (parent_comment);
 
 
 --
--- TOC entry 1914 (class 1259 OID 17113)
--- Dependencies: 162 1960
+-- TOC entry 1921 (class 1259 OID 17647)
+-- Dependencies: 162 1969
 -- Name: fki_comments_pages_fk; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -679,8 +681,8 @@ CREATE INDEX fki_comments_pages_fk ON comments USING btree (parent_page);
 
 
 --
--- TOC entry 1915 (class 1259 OID 17114)
--- Dependencies: 162 1960
+-- TOC entry 1922 (class 1259 OID 17648)
+-- Dependencies: 162 1969
 -- Name: fki_comments_users_fk; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -688,8 +690,8 @@ CREATE INDEX fki_comments_users_fk ON comments USING btree (author_id);
 
 
 --
--- TOC entry 1918 (class 1259 OID 17115)
--- Dependencies: 166 1960
+-- TOC entry 1925 (class 1259 OID 17649)
+-- Dependencies: 166 1969
 -- Name: fki_menu_menu; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -697,8 +699,8 @@ CREATE INDEX fki_menu_menu ON menu USING btree (parent_id);
 
 
 --
--- TOC entry 1919 (class 1259 OID 17116)
--- Dependencies: 166 1960
+-- TOC entry 1926 (class 1259 OID 17650)
+-- Dependencies: 166 1969
 -- Name: fki_menu_menu_fk; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -706,8 +708,17 @@ CREATE INDEX fki_menu_menu_fk ON menu USING btree (parent_id);
 
 
 --
--- TOC entry 1922 (class 1259 OID 17117)
--- Dependencies: 168 1960
+-- TOC entry 1929 (class 1259 OID 17701)
+-- Dependencies: 168 1969
+-- Name: fki_pages_pages_fk; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_pages_pages_fk ON pages USING btree (parent_page);
+
+
+--
+-- TOC entry 1930 (class 1259 OID 17651)
+-- Dependencies: 168 1969
 -- Name: fki_pages_users_fk; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -715,8 +726,8 @@ CREATE INDEX fki_pages_users_fk ON pages USING btree (author_id);
 
 
 --
--- TOC entry 1927 (class 1259 OID 17118)
--- Dependencies: 171 1960
+-- TOC entry 1935 (class 1259 OID 17652)
+-- Dependencies: 171 1969
 -- Name: fki_roles_users_fk; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -724,8 +735,8 @@ CREATE INDEX fki_roles_users_fk ON roles_users USING btree (user_id);
 
 
 --
--- TOC entry 1928 (class 1259 OID 17119)
--- Dependencies: 171 1960
+-- TOC entry 1936 (class 1259 OID 17653)
+-- Dependencies: 171 1969
 -- Name: fki_roles_users_roles_fk; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -733,8 +744,8 @@ CREATE INDEX fki_roles_users_roles_fk ON roles_users USING btree (role_id);
 
 
 --
--- TOC entry 1929 (class 1259 OID 17120)
--- Dependencies: 171 1960
+-- TOC entry 1937 (class 1259 OID 17654)
+-- Dependencies: 171 1969
 -- Name: fki_roles_users_user_fk; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -742,8 +753,8 @@ CREATE INDEX fki_roles_users_user_fk ON roles_users USING btree (user_id);
 
 
 --
--- TOC entry 1936 (class 2606 OID 17121)
--- Dependencies: 162 162 1911 1960
+-- TOC entry 1944 (class 2606 OID 17655)
+-- Dependencies: 162 1918 162 1969
 -- Name: comments_comments_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -752,8 +763,8 @@ ALTER TABLE ONLY comments
 
 
 --
--- TOC entry 1937 (class 2606 OID 17126)
--- Dependencies: 162 168 1923 1960
+-- TOC entry 1945 (class 2606 OID 17660)
+-- Dependencies: 168 1931 162 1969
 -- Name: comments_pages_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -762,8 +773,8 @@ ALTER TABLE ONLY comments
 
 
 --
--- TOC entry 1938 (class 2606 OID 17131)
--- Dependencies: 175 1934 162 1960
+-- TOC entry 1946 (class 2606 OID 17665)
+-- Dependencies: 162 1942 175 1969
 -- Name: comments_users_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -772,8 +783,8 @@ ALTER TABLE ONLY comments
 
 
 --
--- TOC entry 1939 (class 2606 OID 17136)
--- Dependencies: 1920 166 166 1960
+-- TOC entry 1947 (class 2606 OID 17670)
+-- Dependencies: 1927 166 166 1969
 -- Name: menu_menu; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -782,8 +793,18 @@ ALTER TABLE ONLY menu
 
 
 --
--- TOC entry 1940 (class 2606 OID 17141)
--- Dependencies: 168 168 1923 1960
+-- TOC entry 1949 (class 2606 OID 17696)
+-- Dependencies: 168 168 1931 1969
+-- Name: pages_pages_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY pages
+    ADD CONSTRAINT pages_pages_fk FOREIGN KEY (parent_page) REFERENCES pages(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 1948 (class 2606 OID 17675)
+-- Dependencies: 168 1931 168 1969
 -- Name: pages_users_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -792,8 +813,8 @@ ALTER TABLE ONLY pages
 
 
 --
--- TOC entry 1941 (class 2606 OID 17146)
--- Dependencies: 170 171 1925 1960
+-- TOC entry 1950 (class 2606 OID 17680)
+-- Dependencies: 170 1933 171 1969
 -- Name: roles_users_roles_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -802,8 +823,8 @@ ALTER TABLE ONLY roles_users
 
 
 --
--- TOC entry 1942 (class 2606 OID 17151)
--- Dependencies: 171 1934 175 1960
+-- TOC entry 1951 (class 2606 OID 17685)
+-- Dependencies: 1942 175 171 1969
 -- Name: roles_users_user_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -812,8 +833,8 @@ ALTER TABLE ONLY roles_users
 
 
 --
--- TOC entry 1943 (class 2606 OID 17156)
--- Dependencies: 172 1934 175 1960
+-- TOC entry 1952 (class 2606 OID 17690)
+-- Dependencies: 175 1942 172 1969
 -- Name: user_tokens_users_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -822,7 +843,7 @@ ALTER TABLE ONLY user_tokens
 
 
 --
--- TOC entry 1965 (class 0 OID 0)
+-- TOC entry 1974 (class 0 OID 0)
 -- Dependencies: 6
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
@@ -834,7 +855,7 @@ GRANT ALL ON SCHEMA public TO magog;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2013-05-24 01:40:28 CEST
+-- Completed on 2013-05-24 12:44:24 CEST
 
 --
 -- PostgreSQL database dump complete

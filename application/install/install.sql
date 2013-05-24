@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1deb1
+-- version 3.4.11.1deb2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Czas wygenerowania: 06 Maj 2013, 19:48
--- Wersja serwera: 5.5.30
+-- Czas wygenerowania: 24 Maj 2013, 12:56
+-- Wersja serwera: 5.5.31
 -- Wersja PHP: 5.4.4-14
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
@@ -115,6 +115,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `news` int(1) NOT NULL,
   `categories` varchar(700) DEFAULT NULL,
   `lang` varchar(10) DEFAULT NULL,
+  `parent_page` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
@@ -122,10 +123,10 @@ CREATE TABLE IF NOT EXISTS `pages` (
 -- Zrzut danych tabeli `pages`
 --
 
-INSERT INTO `pages` (`id`, `title`, `short_title`, `content`, `author_id`, `date`, `mod_date`, `public`, `comments`, `news`, `categories`, `lang`) VALUES
-(1, 'Witaj!', 'witaj', '<p>Witaj w systemie <strong>MAGOG</strong>! Jest to system zarządzania treścią posiadający następujące funkcje:</p>\n<p><span style="text-decoration: underline;">Zarządzania treścią:</span></p>\n<ul>\n<li>Artykuły (strona statyczna / news)</li>\n<li>Komentarze (możliwość moderacji i wyłączenia możliwości komentowania dla r&oacute;żnych stron)</li>\n<li>Edytowalne, wielopoziomowe menu</li>\n<li>Strona gł&oacute;wna z możliwością wyboru (strona statyczna / archiwum news&oacute;w)</li>\n<li>Możliwość wyboru szablonu</li>\n</ul>\n<p><span style="text-decoration: underline;">Zarządzania użytkownikami</span></p>\n<ul>\n<li>System użytkownik&oacute;w\n<ul>\n<li>Dane osobowe</li>\n<li>Możliwość wyboru języka panelu (en/pl)</li>\n<li>Awatar</li>\n</ul>\n</li>\n<li>Grupy uprawnień\n<ul>\n<li>Domyślne grupy:</li>\n<ul>\n<li>administratorzy</li>\n<li>moderatorzy (komentarze)</li>\n<li>redaktorzy (atykuły)</li>\n<li>czytelnicy</li>\n</ul>\n<li>Możliwość edycji grup, przydzielania członk&oacute;w</li>\n<li>Każda z grup ma nazwę i opis</li>\n</ul>\n</li>\n</ul>\n<p>&nbsp;</p>', 1, 1342608942, 1348575672, 1, 1, 0, '', 'en'),
-(2, 'Pierwszy News', 'pierwszy-news', '<p>Oto jest pierwsza <span style="color: #888888;">informacja<span style="color: #ff0000;">&nbsp;<span style="font-size: medium;">zapisana jako news</span></span></span></p>', 1, 1348575732, 1348575732, 1, 0, 1, '', 'en'),
-(3, 'Drugi news', 'drugi-news', '<p>Oto jest drugi news na stronie - tym razem komentowalny.</p>', 1, 1348575813, 1348575813, 1, 1, 1, '', 'en');
+INSERT INTO `pages` (`id`, `title`, `short_title`, `content`, `author_id`, `date`, `mod_date`, `public`, `comments`, `news`, `categories`, `lang`, `parent_page`) VALUES
+(1, 'Witaj!', 'witaj', '<p>Witaj w systemie <strong>MAGOG</strong>! Jest to system zarządzania treścią posiadający następujące funkcje:</p>\n<p><span style="text-decoration: underline;">Zarządzania treścią:</span></p>\n<ul>\n<li>Artykuły (strona statyczna / news)</li>\n<li>Komentarze (możliwość moderacji i wyłączenia możliwości komentowania dla r&oacute;żnych stron)</li>\n<li>Edytowalne, wielopoziomowe menu</li>\n<li>Strona gł&oacute;wna z możliwością wyboru (strona statyczna / archiwum news&oacute;w)</li>\n<li>Możliwość wyboru szablonu</li>\n</ul>\n<p><span style="text-decoration: underline;">Zarządzania użytkownikami</span></p>\n<ul>\n<li>System użytkownik&oacute;w\n<ul>\n<li>Dane osobowe</li>\n<li>Możliwość wyboru języka panelu (en/pl)</li>\n<li>Awatar</li>\n</ul>\n</li>\n<li>Grupy uprawnień\n<ul>\n<li>Domyślne grupy:</li>\n<ul>\n<li>administratorzy</li>\n<li>moderatorzy (komentarze)</li>\n<li>redaktorzy (atykuły)</li>\n<li>czytelnicy</li>\n</ul>\n<li>Możliwość edycji grup, przydzielania członk&oacute;w</li>\n<li>Każda z grup ma nazwę i opis</li>\n</ul>\n</li>\n</ul>\n<p>&nbsp;</p>', 1, 1342608942, 1348575672, 1, 1, 0, '', 'en', NULL),
+(2, 'Pierwszy News', 'pierwszy-news', '<p>Oto jest pierwsza <span style="color: #888888;">informacja<span style="color: #ff0000;">&nbsp;<span style="font-size: medium;">zapisana jako news</span></span></span></p>', 1, 1348575732, 1348575732, 1, 0, 1, '', 'en', NULL),
+(3, 'Drugi news', 'drugi-news', '<p>Oto jest drugi news na stronie - tym razem komentowalny.</p>', 1, 1348575813, 1348575813, 1, 1, 1, '', 'en', NULL);
 
 -- --------------------------------------------------------
 

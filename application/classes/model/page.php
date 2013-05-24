@@ -41,10 +41,15 @@ class Model_Page extends ORM
         'news' => array('type' => 'string', 'is_nullable' => false),
         'categories' => array('type' => 'string', 'is_nullable' => true),
         'lang' => array('type' => 'string', 'is_nullable' => true),
+        'parent_page' => array('type' => 'int', 'is_nullable' => true),
     );
 
     public $_table_name = 'pages';
-    protected $_has_many = array('page_comments' => array('model' => 'comment', 'foreign_key' => 'parent_page'));
+    protected $_belongs_to = array('parent' => array('model' => 'page', 'foreign_key' => 'parent_page'));
+    protected $_has_many = array(
+        'page_comments' => array('model' => 'comment', 'foreign_key' => 'parent_page'),
+        'drafts' => array('model' => 'page', 'foreign_key' => 'parent_page')
+    );
 
 
     public function getAllPages($page_size, $page_number)
