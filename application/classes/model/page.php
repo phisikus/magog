@@ -194,15 +194,16 @@ class Model_Page extends ORM
 
     public function getArchiveMenuList()
     {
-        return ORM::factory('page')
-            ->select(array(DB::expr('MONTH(FROM_UNIXTIME(date))'), 'month'))
+        return DB::select(array(DB::expr('MONTH(FROM_UNIXTIME(date))'), 'month'))
             ->select(array(DB::expr('YEAR(FROM_UNIXTIME(date))'), 'year'))
             ->select(array(DB::expr('COUNT(*)'), 'how'))
+            ->from('pages')
             ->where('news', '=', 1)
-            ->group_by('year', 'month', 'id')
+            ->group_by('year', 'month')
             ->order_by('year')
             ->order_by('month')
-            ->find_all();
+            ->as_object()
+            ->execute();
 
     }
 

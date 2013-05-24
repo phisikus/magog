@@ -23,7 +23,8 @@
  */
 
 
-class Model_Role extends Model_Auth_Role {
+class Model_Role extends Model_Auth_Role
+{
 
     protected $_table_columns = array(
         'id' => array('type' => 'int', 'is_nullable' => false),
@@ -32,72 +33,66 @@ class Model_Role extends Model_Auth_Role {
     );
     protected $has_and_belongs_to_many = array('users');
     public $_table_name = 'roles';
-    
-    
-    
+
+
     public function getRole($id)
     {
-		return ORM::factory('role')->where('id','=', $id)->find();
-	}
-	
-	public function getAllRoles($page_size,$page_number)
-	{
-		 if($page_number == 0)
-			return ceil(ORM::factory('role')->count_all()/$page_size);
-		else
-		{
-			$offset = $page_size*($page_number-1);
-			return ORM::factory('role')->limit($page_size)->offset($offset)->find_all();
-		}
-	} 
-	
-	public function hasUserRole($id,$idr)
-	{
-		if($id != 0)
-		{
-			$userz = ORM::factory('user')->where('id','=',$id)->find();
-			return $userz->has('roles', $idr);
-		}
-		
-	}
-	
-	public function getUserRoles($id)
-	{
-		if($id != 0)
-		{
-			$userz = ORM::factory('user')->where('id','=',$id)->find();
-			return $userz->roles->find_all();
-		}
-	}
-	
-	public function setRoleProfile($id,$name,$description)
-	{
-		if($id != 0 ) $rolez = ORM::factory('role')->where('id','=',$id)->find();
-		else $rolez = ORM::factory('role');
-		$rolez->name = $name;
-		$rolez->description = $description;
-		$rolez->save();
-	}
-	
-	public function deleteRole($id)
-	{
-	   if($id != 0) 
-	   {
-			$role = ORM::factory('role')->where('id','=',$id)->find();
-			$role->delete();
-	   }
-	}
-	
-	public function getRoleUsers($idr,$page_size,$page_number)
-	{			
-	   if($page_number == 0)
-			return ceil(ORM::factory('role')->where('id','=',$idr)->find()->users->count_all()/$page_size);
-		else
-		{
-			$offset = $page_size*($page_number-1);
-			return ORM::factory('role')->where('id','=',$idr)->find()->users->limit($page_size)->offset($offset)->find_all();
-		};
-		
-	}
+        return ORM::factory('role')->where('id', '=', $id)->find();
+    }
+
+    public function getAllRoles($page_size, $page_number)
+    {
+        if ($page_number == 0)
+            return ceil(ORM::factory('role')->count_all() / $page_size);
+        else {
+            $offset = $page_size * ($page_number - 1);
+            return ORM::factory('role')->limit($page_size)->offset($offset)->find_all();
+        }
+    }
+
+    public function hasUserRole($id, $idr)
+    {
+        if ($id != 0) {
+            $userz = ORM::factory('user')->where('id', '=', $id)->find();
+            return $userz->has('roles', $idr);
+        }
+
+    }
+
+    public function getUserRoles($id)
+    {
+        if ($id != 0) {
+            $userz = ORM::factory('user')->where('id', '=', $id)->find();
+            return $userz->roles->find_all();
+        }
+    }
+
+    public function setRoleProfile($id, $name, $description)
+    {
+        if ($id != 0) $rolez = ORM::factory('role')->where('id', '=', $id)->find();
+        else $rolez = ORM::factory('role');
+        $rolez->name = $name;
+        $rolez->description = $description;
+        $rolez->save();
+    }
+
+    public function deleteRole($id)
+    {
+        if ($id != 0) {
+            $role = ORM::factory('role')->where('id', '=', $id)->find();
+            $role->delete();
+        }
+    }
+
+    public function getRoleUsers($idr, $page_size, $page_number)
+    {
+        if ($page_number == 0)
+            return ceil(ORM::factory('role')->where('id', '=', $idr)->find()->users->count_all() / $page_size);
+        else {
+            $offset = $page_size * ($page_number - 1);
+            return ORM::factory('role')->where('id', '=', $idr)->find()->users->limit($page_size)->offset($offset)->find_all();
+        };
+
+    }
 
 }
