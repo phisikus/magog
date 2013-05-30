@@ -115,9 +115,11 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `news` int(1) NOT NULL,
   `categories` varchar(700) DEFAULT NULL,
   `lang` varchar(10) DEFAULT NULL,
-  `parent_page` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+  `parent_page` int(15) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`parent_page`) REFERENCES `pages` (`id`)
+) DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
 
 --
 -- Zrzut danych tabeli `pages`
@@ -256,6 +258,7 @@ ALTER TABLE `roles_users`
 --
 ALTER TABLE `user_tokens`
   ADD CONSTRAINT `user_tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
