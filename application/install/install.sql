@@ -16,7 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
-
+DROP DATABASE `magog`;
 CREATE DATABASE IF NOT EXISTS `magog`;
 USE `magog`;
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `id` int(15) unsigned NOT NULL AUTO_INCREMENT,
   `author_id` int(11) unsigned DEFAULT NULL,
   `author_username` varchar(32) NOT NULL,
-  `parent_page` int(15) unsigned NOT NULL,
+  `parent_page` int(15) unsigned NULL,
   `parent_comment` int(15) unsigned DEFAULT NULL,
   `content` text,
   `date` int(10) unsigned NOT NULL,
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `title` varchar(500) NOT NULL,
   `short_title` varchar(500) NOT NULL,
   `content` text NOT NULL,
-  `author_id` int(11) NOT NULL,
+  `author_id` int(15) unsigned NULL,
   `date` int(10) unsigned NOT NULL,
   `mod_date` int(10) NOT NULL,
   `public` int(1) NOT NULL,
@@ -265,7 +265,8 @@ ALTER TABLE `menu`
 -- Constraints for table `pages`
 --
 ALTER TABLE `pages`
-  ADD CONSTRAINT `pages_ibfk_1` FOREIGN KEY (`parent_page`) REFERENCES `pages` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `pages_ibfk_1` FOREIGN KEY (`parent_page`) REFERENCES `pages` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `pages_users_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `roles_users`
