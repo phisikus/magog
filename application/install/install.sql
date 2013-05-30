@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Czas wygenerowania: 24 Maj 2013, 12:56
--- Wersja serwera: 5.5.31
--- Wersja PHP: 5.4.4-14
+-- Generation Time: May 30, 2013 at 07:07 PM
+-- Server version: 5.5.31
+-- PHP Version: 5.4.4-14
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -16,42 +16,50 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
+
+CREATE DATABASE IF NOT EXISTS `magog`;
+USE `magog`;
+
 --
--- Baza danych: `magog`
+-- Database: `magog`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `comments`
+-- Table structure for table `comments`
 --
 
+DROP TABLE IF EXISTS `comments`;
 CREATE TABLE IF NOT EXISTS `comments` (
   `id` int(15) unsigned NOT NULL AUTO_INCREMENT,
-  `author_id` int(11) NOT NULL,
+  `author_id` int(11) unsigned DEFAULT NULL,
   `author_username` varchar(32) NOT NULL,
   `parent_page` int(15) unsigned NOT NULL,
-  `parent_comment` int(15) DEFAULT '0',
+  `parent_comment` int(15) unsigned DEFAULT NULL,
   `content` text,
   `date` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `comments_pages1` (`parent_page`)
+  KEY `comments_pages1` (`parent_page`),
+  KEY `parent_comment` (`parent_comment`),
+  KEY `comments_users1` (`author_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Zrzut danych tabeli `comments`
+-- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`id`, `author_id`, `author_username`, `parent_page`, `parent_comment`, `content`, `date`) VALUES
-(1, 1, 'admin', 1, 0, 'Tak, to super', 1348575681),
-(2, 1, 'admin', 1, 0, 'No seryjnie niesamowite.', 1348575689);
+(1, 1, 'admin', 1, NULL, 'Tak, to super', 1348575681),
+(2, 1, 'admin', 1, NULL, 'No seryjnie niesamowite.', 1348575689);
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `config`
+-- Table structure for table `config`
 --
 
+DROP TABLE IF EXISTS `config`;
 CREATE TABLE IF NOT EXISTS `config` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `website` varchar(255) DEFAULT NULL,
@@ -62,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `config` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
--- Zrzut danych tabeli `config`
+-- Dumping data for table `config`
 --
 
 INSERT INTO `config` (`id`, `website`, `module`, `property`, `value`) VALUES
@@ -73,9 +81,10 @@ INSERT INTO `config` (`id`, `website`, `module`, `property`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `menu`
+-- Table structure for table `menu`
 --
 
+DROP TABLE IF EXISTS `menu`;
 CREATE TABLE IF NOT EXISTS `menu` (
   `id` int(15) unsigned NOT NULL AUTO_INCREMENT,
   `text` varchar(255) DEFAULT NULL,
@@ -88,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
--- Zrzut danych tabeli `menu`
+-- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`id`, `text`, `parent_id`, `link`, `enabled`, `visible`) VALUES
@@ -99,9 +108,10 @@ INSERT INTO `menu` (`id`, `text`, `parent_id`, `link`, `enabled`, `visible`) VAL
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `pages`
+-- Table structure for table `pages`
 --
 
+DROP TABLE IF EXISTS `pages`;
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(15) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(500) NOT NULL,
@@ -117,12 +127,11 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `lang` varchar(10) DEFAULT NULL,
   `parent_page` int(15) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`parent_page`) REFERENCES `pages` (`id`)
-) DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
+  KEY `parent_page` (`parent_page`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Zrzut danych tabeli `pages`
+-- Dumping data for table `pages`
 --
 
 INSERT INTO `pages` (`id`, `title`, `short_title`, `content`, `author_id`, `date`, `mod_date`, `public`, `comments`, `news`, `categories`, `lang`, `parent_page`) VALUES
@@ -133,9 +142,10 @@ INSERT INTO `pages` (`id`, `title`, `short_title`, `content`, `author_id`, `date
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `roles`
+-- Table structure for table `roles`
 --
 
+DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
@@ -145,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Zrzut danych tabeli `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `description`) VALUES
@@ -158,9 +168,10 @@ INSERT INTO `roles` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `roles_users`
+-- Table structure for table `roles_users`
 --
 
+DROP TABLE IF EXISTS `roles_users`;
 CREATE TABLE IF NOT EXISTS `roles_users` (
   `user_id` int(10) unsigned NOT NULL,
   `role_id` int(10) unsigned NOT NULL,
@@ -169,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `roles_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `roles_users`
+-- Dumping data for table `roles_users`
 --
 
 INSERT INTO `roles_users` (`user_id`, `role_id`) VALUES
@@ -184,9 +195,10 @@ INSERT INTO `roles_users` (`user_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `users`
+-- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(127) NOT NULL,
@@ -205,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Zrzut danych tabeli `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `logins`, `last_login`, `full_name`, `external_id`, `signature`, `avatar`, `lang`) VALUES
@@ -215,9 +227,10 @@ INSERT INTO `users` (`id`, `email`, `username`, `password`, `logins`, `last_logi
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `user_tokens`
+-- Table structure for table `user_tokens`
 --
 
+DROP TABLE IF EXISTS `user_tokens`;
 CREATE TABLE IF NOT EXISTS `user_tokens` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL,
@@ -231,34 +244,41 @@ CREATE TABLE IF NOT EXISTS `user_tokens` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Ograniczenia dla zrzutów tabel
+-- Constraints for dumped tables
 --
 
 --
--- Ograniczenia dla tabeli `comments`
+-- Constraints for table `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_pages1` FOREIGN KEY (`parent_page`) REFERENCES `pages` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `comments_pages1` FOREIGN KEY (`parent_page`) REFERENCES `pages` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `comments_users1` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`parent_comment`) REFERENCES `comments` (`id`) ON DELETE SET NULL;
 
 --
--- Ograniczenia dla tabeli `menu`
+-- Constraints for table `menu`
 --
 ALTER TABLE `menu`
   ADD CONSTRAINT `menu_submenus` FOREIGN KEY (`parent_id`) REFERENCES `menu` (`id`) ON DELETE CASCADE;
 
 --
--- Ograniczenia dla tabeli `roles_users`
+-- Constraints for table `pages`
+--
+ALTER TABLE `pages`
+  ADD CONSTRAINT `pages_ibfk_1` FOREIGN KEY (`parent_page`) REFERENCES `pages` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `roles_users`
 --
 ALTER TABLE `roles_users`
   ADD CONSTRAINT `roles_users_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `roles_users_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Ograniczenia dla tabeli `user_tokens`
+-- Constraints for table `user_tokens`
 --
 ALTER TABLE `user_tokens`
   ADD CONSTRAINT `user_tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

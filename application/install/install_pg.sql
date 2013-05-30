@@ -769,7 +769,7 @@ ALTER TABLE ONLY comments
 --
 
 ALTER TABLE ONLY comments
-    ADD CONSTRAINT comments_pages_fk FOREIGN KEY (parent_page) REFERENCES pages(id);
+    ADD CONSTRAINT comments_pages_fk FOREIGN KEY (parent_page) REFERENCES pages(id) ON DELETE CASCADE;
 
 
 --
@@ -779,7 +779,7 @@ ALTER TABLE ONLY comments
 --
 
 ALTER TABLE ONLY comments
-    ADD CONSTRAINT comments_users_fk FOREIGN KEY (author_id) REFERENCES users(id);
+    ADD CONSTRAINT comments_users_fk FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE;
 
 
 --
@@ -789,7 +789,7 @@ ALTER TABLE ONLY comments
 --
 
 ALTER TABLE ONLY menu
-    ADD CONSTRAINT menu_menu FOREIGN KEY (parent_id) REFERENCES menu(id);
+    ADD CONSTRAINT menu_menu FOREIGN KEY (parent_id) REFERENCES menu(id) ON DELETE CASCADE;
 
 
 --
