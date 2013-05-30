@@ -12,6 +12,7 @@ SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
+
 --
 -- TOC entry 176 (class 3079 OID 11652)
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
@@ -163,12 +164,12 @@ SET default_with_oids = false;
 
 CREATE TABLE comments (
     id integer DEFAULT nextval('comments_pk_seq'::regclass) NOT NULL,
-    author_id integer DEFAULT nextval('comments_pk_seq'::regclass) NOT NULL,
-    author_username character varying(255),
-    parent_page integer NOT NULL,
+    author_id integer DEFAULT nextval('comments_pk_seq'::regclass) NULL,
+    author_username character varying(255) NOT NULL,
+    parent_page integer NULL,
     parent_comment integer,
     content text,
-    date integer
+    date integer NOT NULL
 );
 
 
@@ -234,8 +235,8 @@ CREATE TABLE menu (
     text character varying(255),
     parent_id integer,
     link character varying(255),
-    enabled integer,
-    visible integer
+    enabled integer NOT NULL,
+    visible integer NOT NULL
 );
 
 
@@ -268,7 +269,7 @@ CREATE TABLE pages (
     title character varying(500),
     short_title character varying(500),
     content text,
-    author_id integer NOT NULL,
+    author_id integer,
     date integer,
     mod_date integer,
     public integer,
@@ -759,7 +760,7 @@ CREATE INDEX fki_roles_users_user_fk ON roles_users USING btree (user_id);
 --
 
 ALTER TABLE ONLY comments
-    ADD CONSTRAINT comments_comments_fk FOREIGN KEY (parent_comment) REFERENCES comments(id);
+    ADD CONSTRAINT comments_comments_fk FOREIGN KEY (parent_comment) REFERENCES comments(id) ON DELETE SET NULL;
 
 
 --
@@ -779,7 +780,7 @@ ALTER TABLE ONLY comments
 --
 
 ALTER TABLE ONLY comments
-    ADD CONSTRAINT comments_users_fk FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE;
+    ADD CONSTRAINT comments_users_fk FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE SET NULL;
 
 
 --
@@ -809,7 +810,7 @@ ALTER TABLE ONLY pages
 --
 
 ALTER TABLE ONLY pages
-    ADD CONSTRAINT pages_users_fk FOREIGN KEY (author_id) REFERENCES pages(id) ON DELETE CASCADE;
+    ADD CONSTRAINT pages_users_fk FOREIGN KEY (author_id) REFERENCES pages(id) ON DELETE SET NULL;
 
 
 --
