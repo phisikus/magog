@@ -7,6 +7,9 @@
 		<link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
         <link rel="Stylesheet" type="text/css" href="<?php echo URL::base(); ?>application/views/css/style.css" />
         <?php
+	echo '
+	<script type="text/javascript" src="'.URL::base().'application/views/js/jquery.min.js"></script>
+	<script type="text/javascript" src="'.URL::base().'application/views/js/jquery.nestable.js"></script>';
 		if(isset($editor))
 		echo '
 		<script type="text/javascript" src="'.URL::base().'application/views/js/tiny_mce/tiny_mce.js"></script>
