@@ -173,12 +173,12 @@ class Model_Page extends ORM
             ->count_all() > 0
         ) {
             $i = 1;
-            $title_i = $title . '-' . $i;
+            $title_i = URL::title($title) . '-' . $i;
             while (ORM::factory('page')
-                ->where('short_title', '=', URL::title($title_i))
+                ->where('short_title', '=', $title_i)
                 ->where('id', '!=', $id)
-                ->count_all() != 0) {
-                $title_i = $title . '-' . $i;
+                ->count_all() > 0) {
+                $title_i = URL::title($title) . '-' . $i;
                 $i++;
             }
 
@@ -187,8 +187,7 @@ class Model_Page extends ORM
         } else $page->short_title = URL::title($title);
 
         $page->save();
-
-
+        return $page;
     }
 
     public function deletePage($id)
@@ -230,6 +229,23 @@ class Model_Page extends ORM
             ->find_all();
     }
 
+
+    public function leaveParent()
+    {
+        $this->parent_page = NULL;
+        $this->save();
+
+    }
+
+    public function createDraft()
+    {
+
+        $draft = $this->setPage(0, __('Szkic').': '.$this->title, $this->content, $this->author_id, $this->public, $this->comments, $this->news, $this->categories);
+        $draft->public = 0;
+        $draft->parent = $this;
+        $draft->save();
+        return $draft;
+    }
 
 }
 

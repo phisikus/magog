@@ -8,6 +8,7 @@
 		<th><?php echo __('Treść'); ?></th>
 		<th><?php echo __('Data'); ?></th>
 		<th><?php echo __('Użytkownik'); ?></th>
+		<th><?php echo __('Opcje'); ?></th>
 	</tr>
 	</thead>
 	<tbody>

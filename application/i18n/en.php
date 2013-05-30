@@ -22,31 +22,31 @@
  * 
  */
  defined('SYSPATH') or die('No direct script access.');
- 
+
  return array (
 					"<h1>Panel Administratora</h1>
-					<p>Witaj na stronie głównej panelu administracyjnego!</p>" => 
-					
+					<p>Witaj na stronie głównej panelu administracyjnego!</p>" =>
+
 					"<h1>Control Panel</h1>
 					<p>Welcome to the administrator's control panel!</p>",
 
 					"<h1>Zarządzanie użytkownikami</h1>
-					<p>Ten panel pozwala na tworzenie, usuwanie oraz edycje danych dotyczących 
+					<p>Ten panel pozwala na tworzenie, usuwanie oraz edycje danych dotyczących
 						użytkowników. Możliwe jest również tworzenie, edycja oraz usuwanie
 						grup uprawnień. W innych modułach tego systemu możliwe jest udzielanie zezwoleń
 						na określone operacje grupom zdefiniowanym w tej części Panelu Administratora </p>" =>
-						
+
 						"<h1>User Management</h1>
 						<p>This control panel allows to add, remove and edit information related to users.
 						It is also possible to create, edit and delete groups (roles). Groups defined in this
 						part of control panel are used in other modules of this system to determine user permissions.
 						</p>",
-						
+
 						"<h1>Panel zarządzania treścią</h1>
 					<p>Witaj w panelu redaktorskim! Umożliwia on edycję treści artykułów i newsów.</p>"
 					 => "<h1>Content management</h1>
 					 <p>This panel allows you to add, edit and delete news or articles.</p>",
-						
+
 						"<h1>Lista użytkowników</h1>" => "<h1>User list</h1>",
 						"<h1> :user - profil</h1>" => "<h1> :user - profile</h1>",
 						"Profil użytkownika :user" => "Profile of :user",
@@ -173,7 +173,7 @@
 						'Usunięto grupę' => 'Group removed',
 						'Dołącz do grupy' => 'Add to group',
 						'Dodaj' => 'Add',
-						'Opuść' => 'Leave',	
+						'Opuść' => 'Leave',
 						'Liczba członków' => 'Total members',
 						'Panel' => 'Panel',
 						'Wyloguj' => 'Logout',
@@ -243,6 +243,11 @@
 						'Brak wyników.' => 'No results.',
 						'Czytaj dalej' => 'Read more',
 						'Dodaj komentarz' => 'Add comment',
+                        'Ten artykuł jest kopią roboczą.' => 'This article is a draft.',
+                        'Odłącz' => 'Detach',
+                        'Szkic' => 'Draft',
+                        'Utwórz szkic' => 'Create draft',
+                        'Rodzic' => 'Parent Article',
 						'styczeń' => 'january',
 						'luty' => 'february',
 						'marzec' => 'march',
@@ -255,6 +260,7 @@
 						'październik' => 'october',
 						'listopad' => 'november',
 						'grudzień' => 'december',
+
 
 );
 

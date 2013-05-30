@@ -288,4 +288,17 @@ td.delete_button {
 }
 
 
+.removalLink {
+    margin-left: 10px;
+    letter-spacing: 2px;
+    text-decoration: underline;
+    color: grey;
+    font-weight: bold;
+}
 
+.removalLink:before {
+    content: '[';
+}
+.removalLink:after {
+    content: ']';
+}
