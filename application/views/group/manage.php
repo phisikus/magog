@@ -8,6 +8,7 @@
 		<th><?php echo __('ID'); ?></th>
 		<th><?php echo __('Login'); ?></th>
 		<th><?php echo __('Nazwa użytkownika'); ?></th>
+		<th><?php echo __('Opcje'); ?></th>
 	</tr>
 	</thead>
 	<tbody>

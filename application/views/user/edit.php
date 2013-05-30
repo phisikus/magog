@@ -58,6 +58,7 @@
 			<tr>
 				<th>'.__('ID').'</th>
 				<th>'.__('Nazwa grupy').'</th>
+				<th>'.__('Opcje').'</th>
 			</tr>
 			</thead>
 			<tbody>

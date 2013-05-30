@@ -362,7 +362,7 @@
 			 {
 				 $content = HTML::chars(Arr::get($_POST,'content'));
 				 $mcom = new Model_Comment;
-				 $mcom->setComment($id,0,Auth::instance()->get_user()->id,
+				 $mcom->setComment($id,NULL,Auth::instance()->get_user()->id,
 				 Auth::instance()->get_user()->username,$content);
 				 
 			 }
