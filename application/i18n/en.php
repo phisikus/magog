@@ -231,8 +231,6 @@
 						=> '<p>Below you can see the structure of menu. You can delete, edit or change position of any entry .</p>',
 						'<p>Przy użyciu formularza można dodawać nowe wpisy, bądź też aktualizować istniejące.</p>' =>
 						'<p>Using the form below you can add menu entry or edit existing one.</p>',
-						'<p>Strzałka w górę i w dół powoduje przesuwanie się wpisów w tych kierunkach, natomiast strzałka lewo powoduje zmniejszenie, a w prawo - zwiększenie głębokości wpisu.</p>'
-						=> '<p>Up arrow and down arrow allows to move entry in mentioned directions, also left arrow allows to decrease entry depth, whereas right arrow increase entry depth</p>',
 						'Ustawienia' => 'Configuration',
 						'Poniżej znajdują się ustawienia dotyczące ogólnej pracy portalu.' => 'Below you can change general settings for your website',
 						'<h1>Konfiguracja witryny</h1>' => '<h1>Website configuration</h1>',

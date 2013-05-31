@@ -3,12 +3,12 @@
 if (is_array($menus)) {
     echo __('<p>Poniżej przedstawiona jest struktura menu wraz z możliwością zmiany położeń wpisów, ich usuwania i edycji.</p>');
     echo __('<p>Przy użyciu formularza można dodawać nowe wpisy, bądź też aktualizować istniejące.</p>');
-    echo __('<p>Strzałka w górę i w dół powoduje przesuwanie się wpisów w tych kierunkach, natomiast strzałka lewo powoduje zmniejszenie, a w prawo - zwiększenie głębokości wpisu.</p>');
     echo '<div class="dd" id="nestable">';
+    echo '<ol class="dd-list" id="nestable-menu">';
+
     foreach ($menus as $tab) {
         $last_level = 0;
         $first = true;
-        echo '<ol class="dd-list" id="nestable-menu">';
         foreach ($tab as $tb) {
 
 
@@ -18,8 +18,7 @@ if (is_array($menus)) {
             if ($tb[1] < $last_level)
                 echo '</li></ol>
 					';
-            if(($tb[1] == $last_level)&&(!$first))
-            {
+            if (($tb[1] == $last_level) && (!$first)) {
                 '</li>';
             }
 
@@ -36,15 +35,15 @@ if (is_array($menus)) {
 
 					';
 
-            if($first) $first = false;
+            if ($first) $first = false;
             $last_level = $tb[1];
 
         }
         while (($last_level--) > 0)
             echo '</ol>
 				';
-        echo '</ol>';
     }
+    echo '</ol>';
 
 
     echo '</div>
@@ -105,13 +104,13 @@ $(document).ready(function()
                 url: '" . url::site() . '/menu/admin/order/' . "',
                 data: JSON.stringify(list.nestable('serialize')),
                 contentType: 'application/json; charset=utf-8',
-                dataType: 'json'//,
-                //success: function(e) { alert(e['status']);}
+                dataType: 'json',
+                success: function(e) { location.reload(); }
                 });
 
     };
 
-    $('#nestable').nestable().on('change', updateOutput);
+    $('.dd').nestable().on('change', updateOutput);
 
 
 });

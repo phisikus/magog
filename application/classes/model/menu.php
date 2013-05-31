@@ -165,9 +165,26 @@ class Model_Menu extends ORM
         return ORM::factory('menu')->find_all();
     }
 
+    public function fixSubmenuOrder($list, $parentId)
+    {
+        // This function swaps ID's of elements in the database and swaps them to keep the new order
+        $children = ORM::factory('menu')->where('parent_id', '=', $parentId)->order_by('id', 'asc')->find_all();
+        $i = 0;
+
+        foreach($list as $el)
+        {
+            $entry = $this->getMenuEntry($el->id);
+            $this->swapMenuEntry($entry,$children[$i]);
+            $i++;
+        }
+
+
+    }
+
 
     public function updateMenuStructure($list, $parentId)
     {
+        // Update parent id to keep the structure
         foreach ($list as $element) {
             $mElement = $this->getMenuEntry($element->id);
             $mElement->parent_id = $parentId;
@@ -178,14 +195,12 @@ class Model_Menu extends ORM
             }
 
         }
+        $this->fixSubmenuOrder($list, $parentId);
         return true;
     }
 
-    public function swapMenuEntry($id1, $id2)
+    public function swapMenuEntry($menu1, $menu2)
     {
-        $menu1 = ORM::factory('menu')->where('id', '=', $id1)->find();
-        $menu2 = ORM::factory('menu')->where('id', '=', $id2)->find();
-
         // Swap two elements position
         list($menu1->link, $menu2->link) = array($menu2->link, $menu1->link);
         list($menu1->text, $menu2->text) = array($menu2->text, $menu1->text);
