@@ -93,7 +93,7 @@ header #descr h2 {
 
 nav ul {
     list-style: none;
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 20px;
     padding: 0;
 }
@@ -127,7 +127,6 @@ aside {
 nav {
     float: left;
     padding: 5px;
-    text-align: justified;
     background: white;
     margin: 0 0 20px 0;
     width: 20%;
@@ -263,7 +262,7 @@ td.delete_button {
 
 .menu-list li:hover {
     list-style: none;
-    margin: 0 0 0px 0;
+    margin: 0 0 0 0;
     padding: 5px;
     background-color: #66A1D2;
     border: #043C6B solid 1px;
@@ -272,7 +271,7 @@ td.delete_button {
 
 .menu-list li {
     list-style: none;
-    margin: 0 0 0px 0;
+    margin: 0 0 0 0;
     padding: 5px;
     background-color: #EEF3FF;
     border: #043C6B solid 1px;
@@ -301,10 +300,11 @@ td.delete_button {
 
 /* MENU */
 
+
 /**
  * Nestable
  */
-.dd { position: relative; display: block; margin: 0; padding: 0; max-width: 600px; list-style: none; font-size: 13px; line-height: 20px; }
+.dd { display: block;  width: 100%; list-style: none; font-size: 13px; line-height: 20px; }
 
 .dd-list { display: block; position: relative; margin: 0; padding: 0; list-style: none; }
 .dd-list .dd-list { padding-left: 30px; }
@@ -312,7 +312,7 @@ td.delete_button {
 
 .dd-item,
 .dd-empty,
-.dd-placeholder { display: block; position: relative; margin: 0; padding: 0; min-height: 20px; font-size: 13px; line-height: 20px; }
+.dd-placeholder { display: block; position: relative; margin: 0; padding: 0; width: 70%; min-height: 20px; font-size: 13px; line-height: 20px; }
 
 .dd-handle { display: block; height: 30px; margin: 5px 0; padding: 5px 10px; color: #333; text-decoration: none; font-weight: bold; border: 1px solid #ccc;
     background: #fafafa;
@@ -371,12 +371,6 @@ td.delete_button {
 #nestable2 .dd-handle:hover { background: #bbb; }
 #nestable2 .dd-item > button:before { color: #fff; }
 
-@media only screen and (min-width: 700px) {
-
-    .dd { float: left; width: 48%; }
-    .dd + .dd { margin-left: 2%; }
-
-}
 
 .dd-hover > .dd-handle { background: #2ea8e5 !important; }
 

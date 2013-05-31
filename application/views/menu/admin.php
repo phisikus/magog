@@ -4,6 +4,7 @@ if (is_array($menus)) {
     echo __('<p>Poniżej przedstawiona jest struktura menu wraz z możliwością zmiany położeń wpisów, ich usuwania i edycji.</p>');
     echo __('<p>Przy użyciu formularza można dodawać nowe wpisy, bądź też aktualizować istniejące.</p>');
     echo __('<p>Strzałka w górę i w dół powoduje przesuwanie się wpisów w tych kierunkach, natomiast strzałka lewo powoduje zmniejszenie, a w prawo - zwiększenie głębokości wpisu.</p>');
+
     echo '<div class="dd">';
     foreach ($menus as $tab) {
         $last_level = 0;
