@@ -53,8 +53,7 @@ require("application/classes/controller/main.php");
 		 $level[0]['path'] ='menu/admin';	
 		  
 		 $this->prepare_menu($menu);
-		 
-		 $tab='';
+
 		 $mmenu = new Model_Menu;
 		 $menus = $mmenu->getAllMenus();
 		 $am = $mmenu->getAllMenuEntrys();
@@ -91,19 +90,11 @@ require("application/classes/controller/main.php");
 	 
 	 public function action_order()
 	 {
-		 $par = explode('=',$this->request->param('id'));
-		 $mmenu = new Model_Menu;
-		 
-		 if($par[1] == 'd')
-			$mmenu->setLower($par[0]);
-		 if($par[1] == 'u')
-			$mmenu->setHigher($par[0]);
-		 if($par[1] == 'l')
-			$mmenu->setLeft($par[0]);
-		 if($par[1] == 'r')
-			$mmenu->setRight($par[0]);
-			
-		 $this->request->redirect('index.php/menu/admin');
+         $this->response->headers('Content-Type','application/json');
+         Log::instance()->add(Log::NOTICE, $this->req);
+         $this->response->body($this->request->body());
+
+		 //$this->request->redirect('index.php/menu/admin');
 	 }
 	 
 	 public function action_delete()

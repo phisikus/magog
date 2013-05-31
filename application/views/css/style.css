@@ -312,7 +312,7 @@ td.delete_button {
 
 .dd-item,
 .dd-empty,
-.dd-placeholder { display: block; position: relative; margin: 0; padding: 0; width: 70%; min-height: 20px; font-size: 13px; line-height: 20px; }
+.dd-placeholder { overflow-y: hidden; display: block; position: relative; margin: 0; padding: 0; width: 70%; min-height: 20px; font-size: 13px; line-height: 20px; }
 
 .dd-handle { display: block; height: 30px; margin: 5px 0; padding: 5px 10px; color: #333; text-decoration: none; font-weight: bold; border: 1px solid #ccc;
     background: #fafafa;
@@ -328,6 +328,7 @@ td.delete_button {
 .dd-item > button { display: block; position: relative; cursor: pointer; float: left; width: 25px; height: 20px; margin: 5px 0; padding: 0; text-indent: 100%; white-space: nowrap; overflow: hidden; border: 0; background: transparent; font-size: 12px; line-height: 1; text-align: center; font-weight: bold; }
 .dd-item > button:before { content: '+'; display: block; position: absolute; width: 100%; text-align: center; text-indent: 0; }
 .dd-item > button[data-action="collapse"]:before { content: '-'; }
+
 
 .dd-placeholder,
 .dd-empty { margin: 5px 0; padding: 0; min-height: 30px; background: #f2fbff; border: 1px dashed #b6bcbf; box-sizing: border-box; -moz-box-sizing: border-box; }
@@ -393,7 +394,7 @@ td.delete_button {
 
 .dd3-item > button { margin-left: 30px; }
 
-.dd3-handle { position: absolute; margin: 0; left: 0; top: 0; cursor: pointer; width: 30px; text-indent: 100%; white-space: nowrap; overflow: hidden;
+.dd3-handle { position: absolute; margin-top: 5px; left: 0; top: 0; cursor: pointer; width: 30px; text-indent: 100%; white-space: nowrap; overflow: hidden;
     border: 1px solid #aaa;
     background: #ddd;
     background: -webkit-linear-gradient(top, #ddd 0%, #bbb 100%);
@@ -402,5 +403,5 @@ td.delete_button {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-.dd3-handle:before { content: '≡'; display: block; position: absolute; left: 0; top: 3px; width: 100%; text-align: center; text-indent: 0; color: #fff; font-size: 20px; font-weight: normal; }
+.dd3-handle:before { content: '≡'; display: block; position: absolute; left: 0; top: 4px; width: 100%; text-align: center; text-indent: 0; color: #fff; font-size: 20px; font-weight: normal; }
 .dd3-handle:hover { background: #ddd; }

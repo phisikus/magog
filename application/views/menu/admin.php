@@ -1,54 +1,23 @@
 <?php
+$menus = $all_menus;
 
-if (is_array($menus)) {
+if (count($menus) > 0) {
     echo __('<p>Poniżej przedstawiona jest struktura menu wraz z możliwością zmiany położeń wpisów, ich usuwania i edycji.</p>');
     echo __('<p>Przy użyciu formularza można dodawać nowe wpisy, bądź też aktualizować istniejące.</p>');
     echo __('<p>Strzałka w górę i w dół powoduje przesuwanie się wpisów w tych kierunkach, natomiast strzałka lewo powoduje zmniejszenie, a w prawo - zwiększenie głębokości wpisu.</p>');
+    echo '<div class="dd" id="nestable">';
+    
 
-    echo '<div class="dd">';
-    foreach ($menus as $tab) {
-        $last_level = 0;
-        $first = true;
-        echo '<ol class="dd-list" id="nestable-menu">';
-        foreach ($tab as $tb) {
-
-
-            if ($tb[1] > $last_level)
-                echo '<ol class="dd-list">
-					';
-            if ($tb[1] < $last_level)
-                echo '</ol>
-					';
-
-            echo '<li class="dd-item dd3-item" data-id="' . $tb[0]->id . '">
-					<div class="dd-handle dd3-handle">
-
-					</div>
-					<div class="dd3-content">
-					    <a href="' . $tb[0]->link . '">' . $tb[0]->text . '</a> |
-					    <a href="' . url::site('menu/admin/index/' . $tb[0]->id) . '">' . __('Edytuj') . '</a>
-				        <a href="' . url::site('menu/admin/delete/' . $tb[0]->id) . '">' . __('Usuń') . '</a>
-                    </div>
-					</li>
-					';
+//<a href="' . $tb[0]->link . '">' . $tb[0]->text . '</a> |
+//<a href="' . url::site('menu/admin/index/' . $tb[0]->id) . '">' . __('Edytuj') . '</a>
+//<a href="' . url::site('menu/admin/delete/' . $tb[0]->id) . '">' . __('Usuń') . '</a>
 
 
-            $last_level = $tb[1];
-
-        }
-        while (($last_level--) > 0)
-            echo '</ol>
-				';
-        echo '</ol>';
-    }
-
-}
-
-echo '</div>
+    echo '</div>
 <br>
 <br>
 <br>';
-
+}
 
 if (isset($entry))
     echo '<h2>' . __('Edycja istniejącej pozycji') . '</h2>';
@@ -91,9 +60,34 @@ echo '</select>
 
 echo "
 <script>
-$('.dd').nestable({ /* config options */ });
+$(document).ready(function()
+{
+
+    var updateOutput = function(e)
+    {
+        var list   = e.length ? e : $(e.target);
+        alert(list.nestable('serialize'));
+            $.ajax({
+                type: \"POST\",
+                url: '" . url::site() . '/menu/admin/order/' . "',
+                data: JSON.stringify(list.nestable('serialize')),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                });
+
+    };
+
+    $('#nestable').nestable().on('change', updateOutput);
+
+
+});
+
+
+
+
+
+
 </script>
 ";
 
 ?>
-
