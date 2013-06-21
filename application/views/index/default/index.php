@@ -1,108 +1,232 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-<title><?php @printf($title); ?></title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="<?php echo URL::base(); ?>application/views/index/default/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title><?php @printf($title); ?></title>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Galdeano' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="<?php echo URL::base(); ?>application/views/index/default/css/normalize.css">
+    <link rel="stylesheet" href="<?php echo URL::base(); ?>application/views/index/default/css/foundation.css">
+    <link rel="stylesheet" href="<?php echo URL::base(); ?>application/views/index/default/css/style.css">
+    <script src="<?php echo URL::base(); ?>application/views/index/default/js/vendor/custom.modernizr.js"></script>
+    <script src="<?php echo URL::base(); ?>application/views/index/default/js/menu.js"></script>
 </head>
 <body>
-<div id="container">
-  <div id="banner">
-    <h1><?php @printf($title); ?></h1>
-  </div>
-  <div id="navcontainer">
-	  <form action="<?php echo url::site('show/news/1=0=0'); ?>" METHOD="GET">
-		<input name="search">
-		<input type="submit" value="<?php echo __('Szukaj'); ?>" />
-      </form>
+<!-- Very Top Header -->
+<div class="row">
+    <div class="large-12 columns" id="HeadBar">
+        <div><a href="<?php echo URL::base(); ?>">Homepage</a> | <a href="">Empty Link</a></div>
+        <div><a href="maito:email@change.in.template">change@this.email</a></div>
+    </div>
+</div>
 
-    <ul id="navlist">
-      <li><a href="">HOMEPAGE</a></li>      
-    </ul>
-    
-  </div>
-  <div id="sidebar">
-    <div class="navlist">
-	<?php
-	
-	if(is_array($menus))
-	{
-		
-		foreach($menus as $tab)
-		{
-			 $last_level = 0;
-			 $first = true;
-			 echo '<ul class="menu-list">';
-			 foreach($tab as $tb)
-			 {
-				 
-				 
-					
-				 if($tb[1] > $last_level)
-					echo '<ul>
+<!-- Header -->
+<div class="row">
+    <div class="large-12 columns" id="TopLogo">
+        <div id="Logo" class="large-5 columns">
+            <h1><?php @printf($title); ?></h1>
+
+            <p>Subtitle</p>
+        </div>
+        <ul id="MenuLogo" class="inline-list large-7 columns">
+            <li><a href="#">Link1</a>
+                <p>Text under hyperlink</p>
+            </li>
+            <li><a href="#">Link1</a>
+                <p>Text under hyperlink</p>
+            </li>
+            <li><a href="#">Link1</a>
+                <p>Text under hyperlink</p>
+            </li>
+            <li><a href="#">Link1</a>
+                <p>Text under hyperlink</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- End Header and Nav -->
+
+<div class="row">
+    <div class="large-12 columns" id="smallBar">
+    </div>
+</div>
+
+<div class="row" id="Main">
+
+    <!-- Main Content Section -->
+    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+    <div class="large-10 push-2 columns">
+        <ul data-orbit id="karuzela">
+            <li>
+                <img src="<?php echo URL::base(); ?>application/views/index/default/img/top.jpg" alt=""/>
+
+                <div class="orbit-caption">Text1</div>
+            </li>
+            <li>
+                <img src="<?php echo URL::base(); ?>application/views/index/default/img/top2.jpg" alt=""/>
+
+                <div class="orbit-caption">Text2</div>
+            </li>
+        </ul>
+        <?php @print($content); ?>
+
+    </div>
+
+
+    <!-- Nav Sidebar -->
+    <!-- This is source ordered to be pulled to the left on larger screens -->
+    <div class="large-2 pull-10 columns" id="sideBar">
+
+        <ul class="side-nav" id="menuLewe">
+            <li><h4>Menu</h4></li>
+
+            <?
+            if (is_array($menus)) {
+
+                foreach ($menus as $tab) {
+                    $last_level = 0;
+                    $first = true;
+                    echo '<ul class="menu-list">';
+                    foreach ($tab as $tb) {
+
+
+                        if ($tb[1] > $last_level)
+                            echo '<ul>
 					';
-				if($tb[1] < $last_level)	
-					echo '</ul>
+                        if ($tb[1] < $last_level)
+                            echo '</ul>
 					';
-			
-				if($first)
-				{
-					echo '<li id="listItem_'.$tb[0]->id.'"><a href="'.$tb[0]->link.'"><b>'.$tb[0]->text.'</b></a>
+
+                        if ($first) {
+                            echo '<li id="listItem_' . $tb[0]->id . '"><a href="' . $tb[0]->link . '"><b>' . $tb[0]->text . '</b></a>
 					';
-					$first = false;
-				} else	
-					echo '<li id="listItem_'.$tb[0]->id.'"><a href="'.$tb[0]->link.'">'.$tb[0]->text.'</a>
+                            $first = false;
+                        } else
+                            echo '<li id="listItem_' . $tb[0]->id . '"><a href="' . $tb[0]->link . '">' . $tb[0]->text . '</a>
 					</li>
 					';
-			
-					
-				 $last_level = $tb[1];
-				 
-			 }
-			 while(($last_level--) > 0)
-				echo '</ul>
-				';
-			 echo '</ul>';
-		 }
-		
-	} 
-	
-	echo '<ul class="menu-list">';
-	$last_year = 0;
-	
-	$months = array(__('styczeń'),__('luty'),__('marzec'),
-					__('kwiecień'),__('maj'),__('czerwiec'),
-					__('lipiec'),__('sierpień'),__('wrzesień'),
-					__('październik'),__('listopad'),__('grudzień'));
 
-	foreach($archives as $arc)
-	{
-		if($arc->year != $last_year)
-		{
-			if($last_year == 0) echo '<li><b>'.$arc->year.'</b></li><ul>';
-			if($last_year != 0) echo '</ul><li><b>'.$arc->year.'</b></li><ul>';
-		}
-		echo '<li><a href="'.url::site('show/news/1='.$arc->month.'='.$arc->year).'">';
-		echo $months[$arc->month-1].' ('.$arc->how.')</a></li>';
-		
-		$last_year = $arc->year;
-		
-	}
-	if($last_year != 0) echo '</ul>';
-	echo '</ul>';
-	  
-      ?>
-      </ul>
+
+                        $last_level = $tb[1];
+
+                    }
+                    while (($last_level--) > 0)
+                        echo '</ul>
+				';
+                    echo '</ul>';
+                }
+
+            }
+
+            ?>
+
+        </ul>
+        <div class="panel">
+            <h5>Contact</h5>
+
+            <p>Jon Doe<br>
+                phone no.: 555-555-555 <br>
+                addr.: Street 1<br>
+
+                00-000, City<br>
+            </p>
+            <a href="mailto:email@email">email@email</a>
+        </div>
     </div>
-  </div>
-  <div id="content">
-   <?php @print($content); ?>
-  </div>
-  <div id="container-foot">
-    <div id="footer">
-      <p>Copyright</p>
-    </div>
-  </div>
+
+
 </div>
+
+
+<!-- Footer -->
+
+<footer class="row" id="footer">
+    <div class="large-12 columns">
+        <ul class="inline-list" id="FooterList">
+            <li><span>Category</span>
+                <ul>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                </ul>
+            </li>
+            <li><span>Category</span>
+                <ul>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                </ul>
+            </li>
+            <li><span>Category</span>
+                <ul>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                </ul>
+            </li>
+            <li><span>Category</span>
+                <ul>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                </ul>
+            </li>
+
+
+        </ul>
+
+    </div>
+</footer>
+
+<script>
+    document.write('<script src=<?php echo URL::base(); ?>application/views/index/default/js/vendor/' +
+            ('__proto__' in {} ? 'zepto' : 'jquery') +
+            '.js><\/script>')
+</script>
+<script src="<?php echo URL::base(); ?>application/views/index/default/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
 </body>
 </html>

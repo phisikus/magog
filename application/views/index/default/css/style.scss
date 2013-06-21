@@ -1,0 +1,339 @@
+@mixin BgGradient {
+  background: #c8d7dc;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M4ZDdkYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjYzJSIgc3RvcC1jb2xvcj0iI2UzZWFlZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMmY1ZjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top, #c8d7dc 0%, #e3eaed 63%, #f2f5f6 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c8d7dc), color-stop(63%, #e3eaed), color-stop(100%, #f2f5f6));
+  background: -webkit-linear-gradient(top, #c8d7dc 0%, #e3eaed 63%, #f2f5f6 100%);
+  background: -o-linear-gradient(top, #c8d7dc 0%, #e3eaed 63%, #f2f5f6 100%);
+  background: -ms-linear-gradient(top, #c8d7dc 0%, #e3eaed 63%, #f2f5f6 100%);
+  background: linear-gradient(to bottom, #c8d7dc 0%, #e3eaed 63%, #f2f5f6 100%);
+}
+
+@mixin oldBlackGradient {
+  background: #4c4c4c;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzRjNGM0YyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEyJSIgc3RvcC1jb2xvcj0iIzU5NTk1OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjI1JSIgc3RvcC1jb2xvcj0iIzY2NjY2NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjM5JSIgc3RvcC1jb2xvcj0iIzQ3NDc0NyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzJjMmMyYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iIzExMTExMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijc2JSIgc3RvcC1jb2xvcj0iIzJiMmIyYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjkxJSIgc3RvcC1jb2xvcj0iIzFjMWMxYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMzEzMTMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4c4c4c), color-stop(12%, #595959), color-stop(25%, #666666), color-stop(39%, #474747), color-stop(50%, #2c2c2c), color-stop(51%, #000000), color-stop(60%, #111111), color-stop(76%, #2b2b2b), color-stop(91%, #1c1c1c), color-stop(100%, #131313));
+  background: -webkit-linear-gradient(top, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%);
+  background: -o-linear-gradient(top, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%);
+  background: -ms-linear-gradient(top, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%);
+  background: linear-gradient(to bottom, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%);
+}
+
+@mixin BlackGradient {
+  background: rgb(69, 72, 77); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(69, 72, 77, 1)), color-stop(100%, rgba(0, 0, 0, 1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%); /* W3C */
+
+}
+
+@mixin BlueGradient {
+  background: rgb(59, 103, 158);
+  background: -moz-linear-gradient(top, rgba(59, 103, 158, 1) 0%, rgba(8, 108, 162, 1) 1%, rgba(3, 69, 105, 1) 100%, rgba(125, 185, 232, 1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(59, 103, 158, 1)), color-stop(1%, rgba(8, 108, 162, 1)), color-stop(100%, rgba(3, 69, 105, 1)), color-stop(100%, rgba(125, 185, 232, 1)));
+  background: -webkit-linear-gradient(top, rgba(59, 103, 158, 1) 0%, rgba(8, 108, 162, 1) 1%, rgba(3, 69, 105, 1) 100%, rgba(125, 185, 232, 1) 100%);
+  background: -o-linear-gradient(top, rgba(59, 103, 158, 1) 0%, rgba(8, 108, 162, 1) 1%, rgba(3, 69, 105, 1) 100%, rgba(125, 185, 232, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(59, 103, 158, 1) 0%, rgba(8, 108, 162, 1) 1%, rgba(3, 69, 105, 1) 100%, rgba(125, 185, 232, 1) 100%);
+  background: linear-gradient(to bottom, rgba(59, 103, 158, 1) 0%, rgba(8, 108, 162, 1) 1%, rgba(3, 69, 105, 1) 100%, rgba(125, 185, 232, 1) 100%);
+}
+
+@mixin veryTopLogoWL {
+  color: white;
+  display: inline;
+  padding: 5px;
+  font-size: 9px;
+  a {
+    color: white;
+    font-family: Arial;
+
+  }
+}
+
+@mixin LeftRightShadow {
+  -moz-box-shadow: 2px 0px 2px #888;
+  -webkit-box-shadow: 2px 0px 2px #888;
+  box-shadow: 2px 0px 2px #888;
+}
+
+body {
+  @include BgGradient;
+}
+
+#HeadBar {
+  @include BlackGradient;
+  margin-top: 5px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+
+  div:first-child {
+    float: left;
+    @include veryTopLogoWL;
+  }
+
+  div {
+    float: right;
+    @include veryTopLogoWL;
+
+  }
+
+  @include LeftRightShadow;
+}
+
+#TopLogo {
+  @include BlueGradient;
+  color: white;
+  @include LeftRightShadow;
+}
+
+#Logo {
+  display: inline-block;
+  //float: left;
+
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+//  width: 32%;
+
+  h1 {
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 30px;
+    margin-bottom: 0px;
+
+  }
+  p {
+    //margin-left: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 2px;
+    font-size: 10px;
+  }
+
+}
+
+#MenuLogo {
+  display: inline-block;
+  margin-top: 20px;
+
+  color: white;
+//  width: 60%;
+ // float: right;
+
+  li {
+    margin-top: 5px;
+    margin-left: 20px;
+    border-left: 1px white dotted;
+    padding-left: 5px;
+    color: white;
+    font-size: 10px;
+    font-family: Arial;
+    a {
+      color: white;
+      font-family: 'Titillium Web', sans-serif;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      font-size: 18px;
+    }
+    p {
+      margin-top: 5px;
+      width: 60px;
+      color: #f8f8ff;
+      line-height: 95%;
+    }
+  }
+}
+
+#smallBar {
+  height: 5px;
+  @include BlackGradient;
+  @include LeftRightShadow;
+}
+
+#Main {
+  width: 100%;
+  background: white;
+  @include LeftRightShadow;
+}
+
+#footer {
+  width: 100%;
+  background: white;
+  margin-bottom: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  @include LeftRightShadow;
+}
+
+#karuzela {
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+#menuPanel {
+  width: 100%;
+  margin: 0;
+}
+#sideBar {
+  h4 {
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 0;
+    margin-left: auto;
+    margin-left: auto;
+    color: #555555;
+    border-bottom: 1px #666666 dotted;
+  }
+}
+
+#menuLewe {
+  font-family: 'Titillium Web', sans-serif;
+  margin-top: 10px;
+  margin-right: -15px;
+  padding: 2px;
+  background: #f2f2f2;
+  border-bottom: 1px #666666 dotted;
+  @include LeftRightShadow;
+  border-radius: 5px;
+
+  h4 {
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 0;
+    margin-left: auto;
+    margin-left: auto;
+    color: #555555;
+    border-bottom: 1px #666666 dotted;
+  }
+
+  li {
+    list-style-type: none;
+    margin-top: 3px;
+    line-height: 90%;
+    a {
+      color: #28343b;
+      font-family: 'Titillium Web', sans-serif;
+      font-size: 12px;
+      text-decoration: none;
+      margin-left: 2px;
+
+      img {
+        margin-right: 5px;
+        width: 13px;
+      }
+    }
+    a:hover {
+      text-decoration: none;
+    }
+
+  }
+
+}
+
+.orbit-bullets li {
+  height: 10px;
+  width: 10px;
+
+}
+
+.orbit-next, .orbit-prev {
+  opacity: 0.1;
+}
+
+.orbit-next:hover, .orbit-prev:hover {
+  opacity: 0.8;
+}
+
+.panel {
+  font-size: 10px;
+  border-radius: 5px;
+  @include LeftRightShadow;
+
+  h5 {
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-left: auto;
+    margin-left: auto;
+    color: #666666;
+    border-bottom: 1px #666666 dotted;
+  }
+
+  p {
+    line-height: 98%;
+  }
+  margin-top: 10px;
+  margin-right: -15px;
+  padding: 4px;
+}
+
+article {
+  background: red;
+  background: #f2f2f2;
+  display: block;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: 'Galdeano', sans-serif;
+  @include LeftRightShadow;
+  h3 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-left: auto;
+    margin-left: auto;
+    color: #666666;
+    border-bottom: 1px #666666 dotted;
+    a {
+      color: #666666;
+    }
+  }
+
+  ul {
+    margin-left: 30px;
+  }
+  margin-bottom: 20px;
+}
+
+#footer {
+  color: white;
+  font-family: 'Titillium Web', sans-serif;
+  @include BlackGradient;
+}
+
+#FooterList {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 30px;
+  color: white;
+  width: 60%;
+  float: left;
+
+  li {
+    margin-top: 5px;
+    margin-left: 20px;
+    padding-left: 5px;
+    color: white;
+    font-size: 10px;
+    font-family: Arial;
+    span {
+      color: white;
+      font-family: 'Titillium Web', sans-serif;
+      font-size: 18px;
+      border-bottom: 1px dotted;
+    }
+    p {
+      margin-top: 5px;
+      width: 60px;
+      color: #f8f8ff;
+      line-height: 95%;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      li {
+        margin: 0;
+      }
+    }
+  }
+}
