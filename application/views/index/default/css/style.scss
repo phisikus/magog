@@ -289,10 +289,34 @@ article {
     }
   }
 
+
+  h1 {
+    font-size: 35px;
+    letter-spacing: 2px;
+    margin-left: auto;
+    margin-left: auto;
+    color: #666666;
+    border-bottom: 1px #666666 dotted;
+    a {
+      color: #666666;
+    }
+  }
+
+
   ul {
     margin-left: 30px;
   }
   margin-bottom: 20px;
+}
+
+#comments {
+  list-style: none;
+  li {
+    background: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+  }
 }
 
 #footer {
@@ -300,6 +324,7 @@ article {
   font-family: 'Titillium Web', sans-serif;
   @include BlackGradient;
 }
+
 
 #FooterList {
   display: inline-block;

@@ -76,7 +76,7 @@ class Model_Comment extends ORM
             }
             return $result;
         }
-        ;
+
 
     }
 
@@ -91,12 +91,12 @@ class Model_Comment extends ORM
                 where('parent_page', '=', $page_no)->limit($page_size)
                 ->offset($offset)->order_by('date', 'desc')->find_all();
         }
-        ;
+
     }
 
     public function getAllCommentsOfPage($page_no)
     {
-        return ORM::factory('comment')->where('parent_page', '=', $page_no)->find_all();
+        return ORM::factory('comment')->where('parent_page', '=', $page_no)->order_by('date', 'desc')->find_all();
     }
 
     public function getComment($id)
@@ -127,7 +127,7 @@ class Model_Comment extends ORM
 
     public function getLastUserComment($userId)
     {
-        return ORM::factory('comment')->where('author_id','=',$userId)->order_by('date','desc')->find();
+        return ORM::factory('comment')->where('author_id', '=', $userId)->order_by('date', 'desc')->find();
     }
 
 
