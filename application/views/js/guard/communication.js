@@ -17,7 +17,7 @@ function update() {
     args['uname'] = myName;
     args['hash'] = myHash;
     args['group'] = myGroup;
-    jQuery.post(baseUrl + "index.php/admin/page/sendGuardUpdate", args, function (data) {
+    jQuery.post(baseUrl + "index.php/page/admin/sendGuardUpdate", args, function (data) {
         active = data['args']['active'];
         delayed = data['args']['delayed'];
         repaintList();

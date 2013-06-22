@@ -8,8 +8,8 @@ var myHash;
 
 // Get authorization hash for websocket/AJAX connection
 function guardRegister(addr) {
-    var args = {'group':myGroup};
-    jQuery.post(baseUrl+"index.php/page/admin/getGuardHash", args, function (data) {
+    var args = {'group': myGroup};
+    jQuery.post(baseUrl + "index.php/page/admin/getGuardHash", args, function (data) {
         myName = data['uname'];
         myHash = data['hash'];
 
@@ -25,8 +25,15 @@ function setupGuard() {
 var webSocket = null;
 function setupWebSocket() {
     stopAsyncUpdate();
-    if(webSocket!=null) {return;}
-    webSocket = new WebSocket("ws://" + window.location.host + ":12345/echo");
+    if (webSocket != null) {
+        return;
+    }
+    if ("WebSocket" in window) {
+        webSocket = new WebSocket("ws://" + window.location.host + ":12345/echo");
+    }
+    else {
+        setupAsyncUpdate();
+    }
     webSocket.onopen = function (evt) {
         login();
     };
@@ -53,7 +60,7 @@ function closeWebSocket() {
 var int_update = null;
 function setupAsyncUpdate() {
     closeWebSocket();
-    if(int_update==null) {
+    if (int_update == null) {
         update();
         if (int_update == null) {
             int_update = window.setInterval(update, 5000);
