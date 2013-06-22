@@ -7,5 +7,10 @@
  */
 function markDraftProposition()
 {
-    $()
+   $('#createDraft').addClass("createDraftActive");
+}
+
+function unmarkDraftProposition()
+{
+    $('#createDraft').removeClass("createDraftActive");
 }

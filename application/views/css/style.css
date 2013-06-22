@@ -414,3 +414,26 @@ td.delete_button {
 .delayedUser {
     color: #555555;
 }
+
+.createDraft {
+
+}
+
+.createDraft span span {
+    display: none;
+}
+
+.createDraftActive span {
+
+    background: greenyellow;
+    border-radius: 5px;
+    padding: 3px;
+
+}
+
+.createDraftActive span span {
+
+    display: inline;
+}
+
+

@@ -14,6 +14,7 @@
 
     if (isset($websocket)) {
         echo '<script type="text/javascript" src="' . URL::base() . 'application/views/js/guard/communication.js"></script>
+        <script type="text/javascript" src="' . URL::base() . 'application/views/js/guard/question.js"></script>
         <script type="text/javascript" src="' . URL::base() . 'application/views/js/guard/list.js"></script>
         <script type="text/javascript" src="' . URL::base() . 'application/views/js/guard/setup.js"></script>
         <script type="text/javascript">

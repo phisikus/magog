@@ -38,6 +38,11 @@ function refreshList() {
             removeUserView(u);
         }
     }
+
+    if (areAnyOtherUsers())
+        markDraftProposition();
+    else
+        unmarkDraftProposition();
 }
 
 function userUpdate(user, action, times) {
@@ -81,6 +86,11 @@ function repaintList() {
     for (u in delayed) {
         showNewUser(u, 'delayedUser');
     }
+
+    if (areAnyOtherUsers())
+        markDraftProposition();
+    else
+        unmarkDraftProposition();
 }
 
 function areAnyOtherUsers() {
