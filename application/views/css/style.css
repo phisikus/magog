@@ -405,3 +405,12 @@ td.delete_button {
 }
 .dd3-handle:before { content: '≡'; display: block; position: absolute; left: 0; top: 4px; width: 100%; text-align: center; text-indent: 0; color: #fff; font-size: 20px; font-weight: normal; }
 .dd3-handle:hover { background: #ddd; }
+
+
+.activeUser {
+    color: #009900;
+}
+
+.delayedUser {
+    color: #555555;
+}

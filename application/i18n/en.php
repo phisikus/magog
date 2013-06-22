@@ -220,6 +220,7 @@
 						'Wybierz artykuł z listy aby aby obejrzeć powiązane z nim komentarze.' => 'Choose article from the list below to view related comments.',
 						'Poniżej znajdują się komentarze do artykułu " :title "' => 'Below you can see comments related to article: " :title "',
 						'Komentarze do artykułu' => 'Article comments',
+                        'Aktualnie edytują' => 'Currently editing',
 						'<h1>Komentarze artykułu</h1>' => '<h1>Article comments</h1>',
 						'Język' => 'Language',
 						'Edytuj' => 'Edit',

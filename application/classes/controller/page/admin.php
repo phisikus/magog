@@ -25,6 +25,7 @@
 
 defined('SYSPATH') or die('No direct script access.');
 require("application/classes/controller/main.php");
+require("application/classes/controller/page/guard/websocket.php");
 
 class Controller_Page_Admin extends Controller_Main
 {
@@ -48,6 +49,50 @@ class Controller_Page_Admin extends Controller_Main
         $menu[1][4] = __('Wyloguj');
         $menu[1][5] = 'admin/logout';
 
+    }
+
+    /*
+     * "Guard" functionality is used to inform about parallel editing of same article/news.
+     *  Browser can use either websocket client or AJAX to update it's status and get list of users editing article.
+     */
+
+    // Random hash for "guard" websocket function
+    protected function rand_hash($len = 10)
+    {
+        $str = '';
+        for ($i = 0; $i < $len; $i++) {
+            $str = $str . chr(rand(40, 120));
+        }
+        $hash = crypt($str, "rand_hash");
+        return $hash;
+    }
+
+    // send "hash" to browser for "guard" function communication
+    public function action_getGuardHash()
+    {
+        $tab['uname'] = Auth::instance()->get_user()->username;
+        $tab['hash'] = $this->rand_hash();
+
+        $group = $_POST['group'];
+        $ws = new WebSocketController($group);
+        $ws->register($tab['uname'], $tab['hash']);
+
+        $this->response->headers('Content-Type', 'application/json');
+        $this->response->body(json_encode($tab));
+    }
+
+    // if websocket is not available for user, this action is used as proxy
+    public function action_sendGuardUpdate()
+    {
+        $user = $_POST['uname'];
+        $hash = $_POST['hash'];
+        $group = $_POST['group'];
+
+        $ws = new WebSocketController($group);
+        $list = $ws->get_update($user, $hash);
+
+        $this->response->headers('Content-Type', 'application/json');
+        $this->response->body($list);
     }
 
     public function action_index()
@@ -110,14 +155,29 @@ class Controller_Page_Admin extends Controller_Main
             $menu[0][9] = '';
         else
             $menu[0][9] .= '/' . $id;
-        // send information about user to view
-        if ($id != 0)
-            $content = $content . View::factory('page/edit')
-                ->set('page', $page)->render();
-        else
-            $content = $content . View::factory('page/edit')->render();
+
 
         $view = View::factory('admin/panel');
+
+        // send information about user to view
+        if ($id != 0) {
+            $content = $content . View::factory('page/edit')
+                ->set('page', $page)->render();
+
+            // Guard functionality test
+            $ws = new SimpleWebSocketClient();
+            if ($ws->isOpen) {
+                $otherMenu = View::factory('page/guard')->render();
+                $view->set('articleId', $page->id);
+                $view->set('userName', Auth::instance()->get_user()->username);
+                $view->set('websocket', 1);
+                $view->set('otherMenu', $otherMenu);
+            }
+
+        } else
+            $content = $content . View::factory('page/edit')->render();
+
+
         $view->set('content', $content);
         $view->set('level', $level);
         $view->set('menu', $menu);
