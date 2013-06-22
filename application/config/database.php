@@ -1,1 +1,1 @@
-database_mysql.php
+database_postgresql.php

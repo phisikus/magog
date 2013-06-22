@@ -145,6 +145,7 @@
 						'Użytkownik o identycznym zewnętrznym ID już istnieje.' => 'This external ID is in use.',
 						'Ten adres już został użyty.' => 'This adress is in use.',
 						'Hasło musi mieć od 5 do 50 znaków.' => 'Password should be longer than 4 and shorter than 49 characters.',
+                        'Użytkownik o tej nazwie istnieje w bazie.' => 'This login is already in use.',
 						'Błąd w polu' => 'Incorrect value in field',
 						'typu:' => 'because:',
 						'Awatar' => 'Avatar',
