@@ -73,7 +73,8 @@ function removeUserView(name) {
 }
 
 function repaintList() {
-    $('#userList li').remove();
+
+    $('#currentEditors li').remove();
     for (u in active) {
         showNewUser(u, 'activeUser');
     }
