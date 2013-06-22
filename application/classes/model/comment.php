@@ -54,7 +54,6 @@ class Model_Comment extends ORM {
     
    public function getAllCommentsSimpleSearch($page_size,$page_number,$se)
    {
-		  $se = strToLower($se);
 		  
 		  if($page_number == 0)
 		  {

@@ -87,8 +87,7 @@ class Model_User extends Model_Auth_User {
    
    public function getAllUsersSimpleSearch($page_size,$page_number,$se)
    {
-		  $se = strToLower($se);
-		  
+
 		  if($page_number == 0)
 		  {
 			  $result = ORM::factory('user')->where('username','like','%'.$se.'%')->find_all();

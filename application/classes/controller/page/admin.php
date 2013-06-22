@@ -236,7 +236,7 @@ class Controller_Page_Admin extends Controller_Main
             if ($id > 0) {
                 $page = $mpage->getPage($id);
                 $draft = $page->createDraft();
-                $mpage->setPage($draft->id, __('Szkic').': '.$title, $content, $author_id, 0, $comments, $news, $categories);
+                $mpage->setPage($draft->id, __('Szkic') . ': ' . $title, $content, $author_id, 0, $comments, $news, $categories);
                 $this->request->redirect('index.php/page/admin/edit/' . $draft->id);
             }
         } else {
@@ -313,6 +313,55 @@ class Controller_Page_Admin extends Controller_Main
         $view->set('level', $level);
         $view->set('menu', $menu);
         $this->response->body($view->render());
+    }
+
+
+    public function action_listJson()
+    {
+        $mpage = new Model_Page;
+        $muser = new Model_User;
+
+        // get search keyword
+        $search = Arr::get($_GET, 'search');
+        $page = Arr::get($_GET, 'page');
+        $page_size = Arr::get($_GET, 'page_size');
+
+        if (empty($page_size)) $page_size = 20;
+        if (empty($page)) $page = 1;
+
+        $search = HTML::chars($search);
+        $page = HTML::chars($page);
+        $page_size = HTML::chars($page_size);
+
+        if (is_numeric($this->request->param('id')) && $this->request->param('id') > 0)
+            $page = $this->request->param('id');
+
+        // find matching pages
+        if (empty($search)) {
+            $page_total = $mpage->getAllPages($page_size, 0);
+            $pages = $mpage->getAllPages($page_size, $page);
+            $search = '';
+        } else {
+            $page_total = $mpage->getAllPagesSimpleSearch($page_size, 0, $search);
+            $pages = $mpage->getAllPagesSimpleSearch($page_size, $page, $search);
+        }
+
+        $i = 0;
+        $pagesTO = array();
+        foreach ($pages as $p) {
+            $pagesTO[$i]["id"] = $p->id;
+            $pagesTO[$i]["title"] = $p->title;
+            $pagesTO[$i]["short_title"] = $p->short_title;
+            $pagesTO[$i]["date"] = date('d-m-Y, G:i', $p->date);
+            $pagesTO[$i]["author_id"] = $p->author_id;
+            $pagesTO[$i]["author_name"] = $muser->getUser($p->author_id)->username;
+            $i++;
+        }
+
+        $output["pages"] = $pagesTO;
+        $output["page_number"] = $page;
+        $output["page_total"] = $page_total;
+        $this->response->body(json_encode($output));
     }
 
     public function action_delete()

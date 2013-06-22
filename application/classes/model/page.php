@@ -69,8 +69,6 @@ class Model_Page extends ORM
 
     public function getAllPagesSimpleSearch($page_size, $page_number, $se)
     {
-        $se = strToLower($se);
-
         if ($page_number == 0) {
             $result = ORM::factory('page')->where('title', 'like', '%' . $se . '%')
                 ->order_by('date', 'desc')->find_all();
@@ -87,7 +85,6 @@ class Model_Page extends ORM
 
     public function getAllNewsSimpleSearch($page_size, $page_number, $month, $year, $se)
     {
-        $se = strToLower($se);
 
         if ($page_number == 0) {
             if ($month > 0)
