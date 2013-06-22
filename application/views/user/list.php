@@ -1,13 +1,11 @@
 <p>
 	<?php echo __('Wybierz użytkownika z listy aby obejrzeć jego profil bądź przeprowadzić inne operacje.'); ?>
 </p>
-<table>
+<table id="searchResults">
 	<thead>
 	<tr>
 		<th colspan="4" id="search">
-			<form action="<?php echo url::site('user/admin/list'); ?>" method="GET">			
-				<?php echo __('Szukaj'); ?> : <input type="text" name="search" <?php if(isset($search)) echo 'value="'.$search.'"'; ?> /> 
-			</form>
+				<?php echo __('Szukaj'); ?> : <input type="text" name="search" id="searchText" onchange="getList('user','searchText','searchResults')" value=""/>
 		</th>
 	</tr>
 

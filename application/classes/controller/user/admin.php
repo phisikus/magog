@@ -159,6 +159,57 @@ class Controller_User_Admin extends Controller_Main
         $this->response->body($view->render());
     }
 
+
+    public function action_listJson()
+    {
+
+        $muser = new Model_User;
+
+        // get search keyword
+        $search = Arr::get($_POST, 'search');
+        $page = Arr::get($_POST, 'page');
+        $page_size = Arr::get($_POST, 'page_size');
+
+        if (empty($page_size)) $page_size = 10000;
+        if (empty($page)) $page = 1;
+
+        $search = HTML::chars($search);
+        $page = HTML::chars($page);
+        $page_size = HTML::chars($page_size);
+
+        if (is_numeric($this->request->param('id')) && $this->request->param('id') > 0)
+            $page = $this->request->param('id');
+
+        // find matching pages
+        if (empty($search)) {
+            $page_total = $muser->getAllUsers($page_size, 0);
+            $userz = $muser->getAllUsers($page_size, $page);
+            $search = '';
+        } else {
+            $page_total = $muser->getAllUsersSimpleSearch($page_size, 0, $search);
+            $userz = $muser->getAllUsersSimpleSearch($page_size, $page, $search);
+        }
+
+        $i = 0;
+        $usersTO = array();
+        foreach ($userz as $p) {
+            $usersTO[$i]["id"] = $p->id;
+            $usersTO[$i]["username"] = $p->username;
+            $usersTO[$i]["full_name"] = $p->full_name;
+            $usersTO[$i]["email"] = $p->email;
+            $i++;
+        }
+
+        $output["users"] = $usersTO;
+        $output["page_number"] = $page;
+        $output["page_total"] = $page_total;
+        $this->response->headers('Content-Type','application/json');
+        $this->response->headers('Access-Control-Allow-Origin','*');
+        $this->response->headers('Access-Control-Allow-Headers','x-http-method-override');
+        $this->response->headers('Access-Control-Allow-Methods','GET, HEAD');
+        $this->response->body(json_encode($output));
+    }
+
     public function action_profile()
     {
         if (is_numeric($this->request->param('id'))) {

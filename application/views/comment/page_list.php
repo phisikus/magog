@@ -1,13 +1,11 @@
 <p>
 	<?php echo __('Wybierz artykuł z listy aby aby obejrzeć powiązane z nim komentarze.'); ?>
 </p>
-<table>
+<table id="searchResults">
 	<thead>
 	<tr>
 		<th colspan="5" id="search">
-			<form action="<?php echo url::site('comment/admin/page_list'); ?>" method="GET">			
-				<?php echo __('Szukaj'); ?> : <input type="text" name="search" <?php if(isset($search)) echo 'value="'.$search.'"'; ?> /> 
-			</form>
+				<?php echo __('Szukaj'); ?> : <input type="text" name="search" id="searchText" onchange="getList('comment','searchText','searchResults')" value=""/>
 		</th>
 	</tr>
 

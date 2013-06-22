@@ -8,8 +8,10 @@
     <link rel="Stylesheet" type="text/css" href="<?php echo URL::base(); ?>application/views/css/style.css"/>
     <?php
     echo '
+    <script type="text/javascript">  var baseUrl = \'' . URL::base() . '\'; </script>
 	<script type="text/javascript" src="' . URL::base() . 'application/views/js/jquery.min.js"></script>
 	<script type="text/javascript" src="' . URL::base() . 'application/views/js/jquery.nestable.js"></script>
+	<script type="text/javascript" src="' . URL::base() . 'application/views/js/listings.js"></script>
 	';
 
     if (isset($websocket)) {
@@ -18,7 +20,6 @@
         <script type="text/javascript" src="' . URL::base() . 'application/views/js/guard/list.js"></script>
         <script type="text/javascript" src="' . URL::base() . 'application/views/js/guard/setup.js"></script>
         <script type="text/javascript">
-            var baseUrl = \'' . URL::base() . '\';
             var myGroup = ' . $articleId . ';
             var myName = \'\';
             var oldfun = window.onload;

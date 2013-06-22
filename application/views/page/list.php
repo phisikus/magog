@@ -1,13 +1,11 @@
 <p>
 	<?php echo __('Wybierz artykuł z listy aby edytować jego treść bądź przeprowadzić inne operacje.'); ?>
 </p>
-<table>
+<table id="searchResults">
 	<thead>
 	<tr>
 		<th colspan="5" id="search">
-			<form action="<?php echo url::site('page/admin/list'); ?>" method="GET">			
-				<?php echo __('Szukaj'); ?> : <input type="text" name="search" <?php if(isset($search)) echo 'value="'.$search.'"'; ?> /> 
-			</form>
+				<?php echo __('Szukaj'); ?> : <input type="text" name="search" id="searchText" onchange="getList('page','searchText','searchResults')" value=""/>
 		</th>
 	</tr>
 
