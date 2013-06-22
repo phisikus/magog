@@ -1,25 +1,25 @@
-
 <?php
 if (!empty($pages))
     foreach ($pages as $pg) {
 
         echo '<article>';
         echo '<header>';
-        echo '<h3><a href="' . url::site('show/page/' . $pg->short_title) . '">' . $pg->title . '</a></h3>';
+        echo '<h1><a href="' . url::site('show/page/' . $pg->short_title) . '">' . $pg->title . '</a></h1>';
         echo '</header>';
         //echo '<h3>'.date('d-m-Y',$pg->date).'</h3>';
         if ($pg->news != 1) {
             echo '<p>' . $pg->content . '</p>
 		';
+            if (!empty($comments) || ($pg->comments == 1))
+                echo '<h3>' . __('Komentarze') . '</h3>';
 
-//            echo '<h3>' . __('Komentarze') . '</h3>';
-            echo '<p>';
+            echo '<ul id="comments">';
             if (!empty($comments))
                 foreach ($comments as $comment)
-                    echo '<h3>' . $comment->author_username . '</h3>
-					<h4>' . date('G:i d-m-Y', $comment->date) . '</h4>
-					<p>' . $comment->content . '</p>';
-            echo '</p>';
+                    echo '<li><h3>' . $comment->author_username . '</h3>
+					<h6>' . date('G:i d-m-Y', $comment->date) . '</h6>
+					<p>' . $comment->content . '</p></li>';
+            echo '</ul>';
 
             if (($pg->comments == 1) && Auth::instance()->logged_in())
                 echo '<h3>' . __('Dodaj komentarz') . '</h3>

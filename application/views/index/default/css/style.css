@@ -239,7 +239,29 @@ article {
     border-bottom: 1px #666666 dotted; }
     article h3 a {
       color: #666666; }
-  article ul {
+
+article h1 {
+    font-size: 34px;
+    letter-spacing: 2px;
+    margin-left: auto;
+    margin-left: auto;
+    color: #666666;
+    border-bottom: 1px #666666 dotted; }
+article h1 a {
+    color: #666666; }
+#comments {
+    list-style: none;
+}
+#comments li {
+    border-radius: 10px;
+    background: white;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+
+
+article ul {
     margin-left: 30px; }
 
 #footer {

@@ -3,7 +3,7 @@
 <head>
 <title><?php @printf($title); ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="<?php echo URL::base(); ?>application/views/index/default/style.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo URL::base(); ?>application/views/index/old/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="container">
