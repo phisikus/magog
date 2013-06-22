@@ -30,23 +30,24 @@ function setupWebSocket() {
     }
     if ("WebSocket" in window) {
         webSocket = new WebSocket("ws://" + window.location.host + ":12345/echo");
+        webSocket.onopen = function (evt) {
+            login();
+        };
+        webSocket.onclose = function (evt) {
+            //onClose(evt)
+        };
+        webSocket.onmessage = function (evt) {
+            onMessage(evt);
+        };
+        webSocket.onerror = function (evt) {
+            //onError(evt);
+            setupAsyncUpdate();
+        };
     }
     else {
         setupAsyncUpdate();
     }
-    webSocket.onopen = function (evt) {
-        login();
-    };
-    webSocket.onclose = function (evt) {
-        //onClose(evt)
-    };
-    webSocket.onmessage = function (evt) {
-        onMessage(evt);
-    };
-    webSocket.onerror = function (evt) {
-        //onError(evt);
-        setupAsyncUpdate();
-    };
+
 }
 
 function closeWebSocket() {

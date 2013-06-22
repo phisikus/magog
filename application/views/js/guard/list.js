@@ -82,3 +82,10 @@ function repaintList() {
         showNewUser(u, 'delayedUser');
     }
 }
+
+function areAnyOtherUsers() {
+    if ($('#currentEditors li').size() > 1)
+        return true;
+    else
+        return false;
+}

@@ -57,7 +57,7 @@
     echo '/> ' . __('Nie') . ' </td></tr>';
     echo '					<tr><td class="col">' . __('Słowa kluczowe') . '</td><td><input type="text" name="categories" value="' . (isset($page) ? $page->categories : '') . '" /></td></tr>';
     if (isset($page->id)) {
-        echo '<tr><td class="col">' . __('Szkic') . '</td><td><input type="checkbox" name="createDraft" value="1" /> '.__('Zapisz jako szkic').'</td></tr>';
+        echo '<tr><td class="col">' . __('Szkic') . '</td><td><input type="checkbox" name="createDraft" value="1" /> ' . __('Zapisz jako szkic') . '</td></tr>';
     }
 
     echo '
