@@ -236,6 +236,7 @@
 						'Ustawienia' => 'Configuration',
 						'Poniżej znajdują się ustawienia dotyczące ogólnej pracy portalu.' => 'Below you can change general settings for your website',
 						'<h1>Konfiguracja witryny</h1>' => '<h1>Website configuration</h1>',
+                        'Anty-Spam: odczekaj min. 20 sekund przed dodaniem następnego komentarza.' => 'Anti-Spam: wait at least 20 seconds before adding next comment.',
 						'Konfiguracja' => 'Configuration',
 						'Strona główna' => 'Start page',
 						'{{Strona z newsami}}' => '{{News page}}',

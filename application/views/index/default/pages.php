@@ -14,6 +14,11 @@ if (!empty($pages))
                 echo '<h3>' . __('Komentarze') . '</h3>';
 
             echo '<ul id="comments">';
+            if ($commentSpam) {
+               echo '<li class="spamComment">'.__('Anty-Spam: odczekaj min. 20 sekund przed dodaniem następnego komentarza.').'
+                </li>';
+            }
+
             if (!empty($comments))
                 foreach ($comments as $comment)
                     echo '<li><h3>' . $comment->author_username . '</h3>

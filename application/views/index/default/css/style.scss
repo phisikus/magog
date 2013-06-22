@@ -319,6 +319,12 @@ article {
   }
 }
 
+#comments .spamComment {
+  background: red;
+  opacity: 0.7;
+  color: white;
+}
+
 #footer {
   color: white;
   font-family: 'Titillium Web', sans-serif;
