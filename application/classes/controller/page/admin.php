@@ -228,11 +228,20 @@ class Controller_Page_Admin extends Controller_Main
         $menu[0][7] = '';
         $menu[0][9] = '';
 
-        $page = $mpage->setPage($id, $title, $content, $author_id, $public, $comments, $news, $categories);
 
         if ($createDraft > 0) {
-            $draft = $page->createDraft();
-            $this->request->redirect('index.php/page/admin/edit/' . $draft->id);
+            // Find article, create draft from previous content
+            // save new information to draft version of article
+            // redirect to draft without changing base article
+            if ($id > 0) {
+                $page = $mpage->getPage($id);
+                $draft = $page->createDraft();
+                $mpage->setPage($draft->id, __('Szkic').': '.$title, $content, $author_id, 0, $comments, $news, $categories);
+                $this->request->redirect('index.php/page/admin/edit/' . $draft->id);
+            }
+        } else {
+            //save article
+            $mpage->setPage($id, $title, $content, $author_id, $public, $comments, $news, $categories);
         }
         $content = __("<h1>Zapisano artykuł</h1>");
         $content = $content . View::factory('page/edited')->render();

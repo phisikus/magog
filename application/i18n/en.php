@@ -247,6 +247,7 @@
                         'Odłącz' => 'Detach',
                         'Szkic' => 'Draft',
                         'Utwórz szkic' => 'Create draft',
+                        'Zapisz jako szkic' => 'Save as draft',
                         'Opcje' => 'Options',
                         'Rodzic' => 'Parent Article',
 						'styczeń' => 'january',
