@@ -27,66 +27,57 @@
             <section class="top-bar-section">
                 <!-- Left Nav Section -->
 
-                    <?
-                    if (is_array($menus)) {
-                        foreach ($menus as $tab) {
-                            $last_level = 0;
-                            $first = true;
-                            echo '<ul class="left">';
-                            foreach ($tab as $tb) {
-                                if ($tb[1] > $last_level)
-                                    echo '<ul class="dropdown">
+                <?
+                if (is_array($menus)) {
+                    foreach ($menus as $tab) {
+                        $last_level = 0;
+                        $first = true;
+                        echo '<ul class="left">';
+                        foreach ($tab as $tb) {
+                            if ($tb[1] > $last_level)
+                                echo '<ul class="dropdown">
 					';
-                                if ($tb[1] < $last_level)
-                                    echo '</ul>
+                            if ($tb[1] < $last_level)
+                                echo '</ul>
 					';
-                                if ($first) {
-                                    echo '<li id="listItem_' . $tb[0]->id . '" class="active has-dropdown"><a href="' . $tb[0]->link . '"><b>' . $tb[0]->text . '</b></a>
+                            if ($first) {
+                                echo '<li id="listItem_' . $tb[0]->id . '" class="active has-dropdown"><a href="' . $tb[0]->link . '"><b>' . $tb[0]->text . '</b></a>
 					';
-                                    $first = false;
-                                } else
-                                    echo '<li id="listItem_' . $tb[0]->id . '" class="has-dropdown"><a href="' . $tb[0]->link . '">' . $tb[0]->text . '</a>
+                                $first = false;
+                            } else
+                                echo '<li id="listItem_' . $tb[0]->id . '" class="has-dropdown"><a href="' . $tb[0]->link . '">' . $tb[0]->text . '</a>
 					</li>
 					';
-                                $last_level = $tb[1];
-                            }
-                            while (($last_level--) > 0)
-                                echo '</ul>
-				';
-                            echo '</ul>';
-
+                            $last_level = $tb[1];
                         }
-                    }
-                    ?>
-                <!--<ul class="left">
-                    <li class="divider"></li>
-                    <li class="active has-dropdown">
-                        <a href="#">Menu1</a>
-                        <ul class="dropdown">
-                            <li><a href="">OKv</a></li>
-                        </ul>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="#">Menu2</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Menu3</a></li>
-                    <li class="divider"></li>
+                        while (($last_level--) > 0)
+                            echo '</ul>
+				';
+                        echo '</ul>';
 
-                </ul>-->
+                    }
+                }
+                ?>
+
 
                 <!-- Right Nav Section -->
                 <ul class="right">
                     <li class="has-form">
-                        <form>
-                            <div class="row collapse">
-                                <div class="small-8 columns">
-                                    <input type="text">
-                                </div>
-                                <div class="small-4 columns">
-                                    <a href="#" class="button">Search</a>
-                                </div>
+                        <div class="row collapse">
+
+                            <div class="small-8 columns">
+                                <form action="<?php echo url::site('show/news/1=0=0'); ?>" METHOD="GET">
+                                    <input name="search">
+
+
                             </div>
-                        </form>
+                            <div class="small-4 columns">
+                                <input type="submit" class="button" value="<?php echo __('Szukaj'); ?>">
+                                </form>
+                            </div>
+
+                        </div>
+
                     </li>
                     <li class="divider show-for-small"></li>
                 </ul>
@@ -113,7 +104,7 @@
     </div>
 </div>
 
-<div class="row" >
+<div class="row">
     <div class="large-12 columns" id="footer">
         Footer
     </div>
