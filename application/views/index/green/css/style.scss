@@ -1,0 +1,412 @@
+@mixin MainBg {
+  background: #c9de96;
+  background: -moz-linear-gradient(top,  #c9de96 0%, #8ab66b 44%, #398235 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c9de96), color-stop(44%,#8ab66b), color-stop(100%,#398235));
+  background: -webkit-linear-gradient(top,  #c9de96 0%,#8ab66b 44%,#398235 100%);
+  background: -o-linear-gradient(top,  #c9de96 0%,#8ab66b 44%,#398235 100%);
+  background: -ms-linear-gradient(top,  #c9de96 0%,#8ab66b 44%,#398235 100%);
+  background: linear-gradient(to bottom,  #c9de96 0%,#8ab66b 44%,#398235 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9de96', endColorstr='#398235',GradientType=0 );
+
+}
+@mixin BlackGradient {
+  background: rgb(213,206,166);
+  background: -moz-linear-gradient(top, rgba(213,206,166,1) 0%, rgba(201,193,144,1) 40%, rgba(183,173,112,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(213,206,166,1)), color-stop(40%,rgba(201,193,144,1)), color-stop(100%,rgba(183,173,112,1)));
+  background: -webkit-linear-gradient(top, rgba(213,206,166,1) 0%,rgba(201,193,144,1) 40%,rgba(183,173,112,1) 100%);
+  background: -o-linear-gradient(top, rgba(213,206,166,1) 0%,rgba(201,193,144,1) 40%,rgba(183,173,112,1) 100%);
+  background: -ms-linear-gradient(top, rgba(213,206,166,1) 0%,rgba(201,193,144,1) 40%,rgba(183,173,112,1) 100%);
+  background: linear-gradient(to bottom, rgba(213,206,166,1) 0%,rgba(201,193,144,1) 40%,rgba(183,173,112,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5cea6', endColorstr='#b7ad70',GradientType=0 );
+
+
+}
+
+@mixin BlueGradient {
+  background: rgb(169,219,128);
+  background: -moz-linear-gradient(top,  rgba(169,219,128,1) 0%, rgba(150,197,111,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(169,219,128,1)), color-stop(100%,rgba(150,197,111,1)));
+  background: -webkit-linear-gradient(top,  rgba(169,219,128,1) 0%,rgba(150,197,111,1) 100%);
+  background: -o-linear-gradient(top,  rgba(169,219,128,1) 0%,rgba(150,197,111,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(169,219,128,1) 0%,rgba(150,197,111,1) 100%);
+  background: linear-gradient(to bottom,  rgba(169,219,128,1) 0%,rgba(150,197,111,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9db80', endColorstr='#96c56f',GradientType=0 );
+
+
+
+}
+
+@mixin veryTopLogoWL {
+  color: white;
+  display: inline;
+  padding: 5px;
+  font-size: 9px;
+  a {
+    color: white;
+    font-family: Arial;
+
+  }
+}
+
+@mixin LeftRightShadow {
+  -moz-box-shadow: 2px 0px 2px #888;
+  -webkit-box-shadow: 2px 0px 2px #888;
+  box-shadow: 2px 0px 2px #888;
+}
+
+@mixin menu {
+  h4 {
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 0;
+    margin-left: auto;
+    color: #555555;
+    border-bottom: 1px #666666 dotted;
+  }
+
+  li {
+    list-style-type: none;
+    margin-top: 3px;
+    line-height: 90%;
+    a {
+      color: #28343b;
+      font-family: 'Titillium Web', sans-serif;
+      font-size: 12px;
+      text-decoration: none;
+      margin-left: 2px;
+
+      img {
+        margin-right: 5px;
+        width: 13px;
+      }
+    }
+    a:hover {
+      text-decoration: none;
+    }
+
+  }
+}
+
+body {
+  width:100%;
+  height: 100%;
+
+
+
+}
+
+.row {
+  width: 100%;
+  max-width: 100%;
+}
+
+#HeadBar {
+  @include BlackGradient;
+
+  div:first-child {
+    float: left;
+    @include veryTopLogoWL;
+  }
+
+  div {
+    float: right;
+    @include veryTopLogoWL;
+
+  }
+
+  @include LeftRightShadow;
+}
+
+#TopLogo {
+  @include BlueGradient;
+  color: black;
+  @include LeftRightShadow;
+}
+
+#Logo {
+  display: inline-block;
+  //float: left;
+
+  margin-left: 20px;
+
+  //  width: 32%;
+
+  h1 {
+    color: black;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 30px;
+    margin-bottom: 0px;
+
+  }
+  p {
+    //margin-left: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 2px;
+    font-size: 10px;
+  }
+
+}
+
+#MenuLogo {
+  display: inline-block;
+  margin-top: 20px;
+
+  color: white;
+  //  width: 60%;
+  // float: right;
+
+  li {
+    margin-top: 5px;
+    margin-left: 20px;
+    border-left: 1px white dotted;
+    padding-left: 5px;
+    color: white;
+    font-size: 10px;
+    font-family: Arial;
+    a {
+      color: white;
+      font-family: 'Titillium Web', sans-serif;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      font-size: 18px;
+    }
+    p {
+      margin-top: 5px;
+      width: 60px;
+      color: #f8f8ff;
+      line-height: 95%;
+    }
+  }
+}
+
+#smallBar {
+  height: 5px;
+  @include BlackGradient;
+  @include LeftRightShadow;
+}
+
+#Main {
+  width: 100%;
+  background: white;
+  @include LeftRightShadow;
+  @include MainBg;
+}
+
+#footer {
+  width: 100%;
+  background: white;
+  margin-bottom: 10px;
+  @include LeftRightShadow;
+}
+
+#karuzela {
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+#menuPanel {
+  width: 100%;
+  margin: 0;
+}
+
+#sideBar {
+  h4 {
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 0;
+    margin-left: auto;
+    color: #555555;
+    border-bottom: 1px #666666 dotted;
+  }
+}
+
+#menuLewe {
+  font-family: 'Titillium Web', sans-serif;
+  margin-top: 10px;
+  margin-right: -15px;
+  padding: 2px;
+  @include BlackGradient;
+  border-bottom: 1px #666666 dotted;
+  @include LeftRightShadow;
+  border-radius: 5px;
+  @include menu;
+
+}
+
+
+
+#meuPrawe {
+  font-family: 'Titillium Web', sans-serif;
+  margin-top: 10px;
+  padding: 2px;
+  background: #f2f2f2;
+  border-bottom: 1px #666666 dotted;
+  @include LeftRightShadow;
+  border-radius: 5px;
+  @include menu;
+
+}
+
+
+.orbit-bullets li {
+  height: 10px;
+  width: 10px;
+
+}
+
+.orbit-next, .orbit-prev {
+  opacity: 0.1;
+}
+
+.orbit-next:hover, .orbit-prev:hover {
+  opacity: 0.8;
+}
+
+.panel {
+  font-size: 10px;
+  border-radius: 5px;
+  @include BlackGradient;
+
+  h5 {
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-left: auto;
+    color: #666666;
+    border-bottom: 1px #666666 dotted;
+  }
+
+  p {
+    line-height: 98%;
+  }
+  margin-top: 10px;
+  margin-right: -15px;
+  padding: 4px;
+}
+
+.panelPrawy {
+  font-size: 10px;
+  border-radius: 5px;
+  background: #f8f8ff;
+  @include BlackGradient;
+
+  h5 {
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-left: auto;
+    color: #666666;
+
+    border-bottom: 1px #666666 dotted;
+  }
+
+  p {
+    line-height: 98%;
+  }
+  margin-top: 10px;
+  padding: 2px;
+}
+
+article {
+  background: red;
+  background: #f2f2f2;
+  display: block;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: 'Galdeano', sans-serif;
+  @include BlackGradient;
+  h3 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-left: auto;
+    color: #666666;
+    border-bottom: 1px #666666 dotted;
+    a {
+      color: #666666;
+    }
+  }
+
+  h1 {
+    font-size: 35px;
+    letter-spacing: 2px;
+    margin-left: auto;
+    color: #666666;
+    border-bottom: 1px #666666 dotted;
+    a {
+      color: #666666;
+    }
+  }
+
+  ul {
+    margin-left: 30px;
+  }
+  margin-bottom: 20px;
+}
+
+#comments {
+  list-style: none;
+  li {
+    background: beige;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+  h3 {
+    font-size: 15px;
+  }
+  h6 {
+    font-size: 13px;
+  }
+}
+
+#comments .spamComment {
+  background: red;
+  opacity: 0.7;
+  color: white;
+}
+
+#footer {
+  color: white;
+  font-family: 'Titillium Web', sans-serif;
+  @include BlackGradient;
+}
+
+#FooterList {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 30px;
+  color: white;
+  width: 60%;
+  float: left;
+
+  li {
+    margin-top: 5px;
+    margin-left: 20px;
+    padding-left: 5px;
+    color: white;
+    font-size: 10px;
+    font-family: Arial;
+    span {
+      color: black;
+      font-family: 'Titillium Web', sans-serif;
+      font-size: 18px;
+      border-bottom: 1px dotted;
+    }
+    p {
+      margin-top: 5px;
+      width: 60px;
+      color: #f8f8ff;
+      line-height: 95%;
+    }
+    a {
+      color: darkslategrey;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      li {
+        margin: 0;
+      }
+    }
+  }
+}
