@@ -88,6 +88,26 @@ html, body {
     padding-bottom: 10px;
 }
 
+#comments {
+    list-style: none;
+}
+#comments h3 {
+    font-size: 20px;
+    border-bottom: 1px dotted;
+}
+#comments li {
+    border-radius: 10px;
+    background: white;
+    padding: 5px;
+}
+
+#comments .spamComment {
+    background: red;
+    opacity: 0.7;
+    color: white;
+}
+
+
 #footer {
     font-size: 10px;
     background: #274F7D;

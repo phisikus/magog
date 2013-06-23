@@ -63,7 +63,6 @@ class Controller_Show extends Controller_Main
             $com_cont = Arr::get($_POST, 'comment_content');
             if (!empty($com_cont) && $page[0]->comments == 1) {
                 $lastCommentTime = $mcom->getLastUserComment(Auth::instance()->get_user()->id)->date;
-                echo $lastCommentTime . ' ' . time();
                 if (time() - $lastCommentTime > $this->spamTimeLimit)
                     $mcom->setComment($page[0]->id, NULL, Auth::instance()->get_user()->id,
                         Auth::instance()->get_user()->username,
