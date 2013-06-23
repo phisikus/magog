@@ -1,5 +1,5 @@
 To make it work:
 1. Check if base_url in bootstrap.php is correct
-2. in config directory there are two configuration files - for MySQL and PostgreSQL - choose one and make symlink.
+2. in config directory there are two configuration files - for MySQL and PostgreSQL - choose one and make symlink (database.php)
 3. Create database 'magog' and execute one of provided SQL scripts.
 4. Open browser:  /magog/index.php/admin/    Default user/password: admin/admin
