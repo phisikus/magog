@@ -9,7 +9,7 @@ return array
             'database' => 'magog',
             'hostname' => 'localhost',
             'username' => 'magog',
-            'password' => 'magog',
+            'password' => 'CHANGE_ME',
             'persistent' => FALSE
         ),
         /**

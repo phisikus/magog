@@ -9,7 +9,7 @@ return array
 			'hostname'   => 'localhost',
 			'database'   => 'magog',
 			'username'   => 'root',
-			'password'   => '8268944',
+			'password'   => 'CHANGE_ME',
 			'persistent' => FALSE,
 		),
 		'table_prefix' => '',
